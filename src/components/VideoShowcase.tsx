@@ -6,20 +6,48 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function VideoShowcase() {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile browsers (especially Android Chrome) don't reliably support
+  // setting video.currentTime without a prior user-gesture-triggered
+  // playback, so scroll-scrubbing silently fails. On mobile we fall back
+  // to a plain autoplaying loop instead.
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Switch the video element's playback mode whenever viewport changes.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (isMobile) {
+      v.loop = true;
+      v.play().catch(() => {
+        // autoplay still requires muted + playsInline (both set on the tag)
+      });
+    } else {
+      v.loop = false;
+      v.pause();
+    }
+  }, [isMobile]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
 
-  // Drive the video frame off scroll position. The video does not autoplay —
-  // it only "moves" when the user scrolls.
+  // Desktop only: drive video frame from scroll position.
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (isMobile) return;
     const v = videoRef.current;
     if (!v || !v.duration || Number.isNaN(v.duration)) return;
     const target = Math.max(0, Math.min(0.999, latest)) * v.duration;
@@ -95,10 +123,12 @@ export default function VideoShowcase() {
             className="absolute inset-0 h-full w-full object-cover"
             muted
             playsInline
-            preload="auto"
+            preload={isMobile ? "metadata" : "auto"}
           >
+            {/* MP4 first — better mobile compat. Browser falls back to .mov
+                if the .mp4 file is absent. */}
+            <source src="/video.mp4" type="video/mp4" />
             <source src="/video.mov" type="video/quicktime" />
-            <source src="/video.mov" type="video/mp4" />
           </video>
         </motion.div>
 
