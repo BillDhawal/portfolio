@@ -23,7 +23,6 @@ export default function VideoShowcase() {
     const v = videoRef.current;
     if (!v || !v.duration || Number.isNaN(v.duration)) return;
     const target = Math.max(0, Math.min(0.999, latest)) * v.duration;
-    // Only assign when the delta is meaningful to avoid frame thrash.
     if (Math.abs(v.currentTime - target) > 0.03) {
       v.currentTime = target;
     }
@@ -31,30 +30,48 @@ export default function VideoShowcase() {
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.04, 1.12]);
 
-  // Pane reveals — non-overlapping windows with empty buffer between them.
-  //   pane 1 (Name)    : visible 0 .. 0.22, fade out 0.22 .. 0.27
-  //   pane 2 (Tagline) : fade in 0.34 .. 0.39, visible .. 0.58, fade .. 0.63
-  //   pane 3 (Caption) : fade in 0.72 .. 0.77, visible .. 0.96, fade .. 1.0
+  // Five panes across 400vh — roughly one pane per scroll, with a brief
+  // empty buffer between each so they never overlap.
+  //
+  //   pane 1 (Name)    : visible 0    .. 0.13, fade out .. 0.17
+  //   pane 2 (Mission) : fade in 0.20 .. 0.23, visible .. 0.36, fade .. 0.40
+  //   pane 3 (Range)   : fade in 0.43 .. 0.46, visible .. 0.59, fade .. 0.63
+  //   pane 4 (Craft)   : fade in 0.66 .. 0.69, visible .. 0.82, fade .. 0.86
+  //   pane 5 (Closing) : fade in 0.89 .. 0.93, visible .. 1.0
   const pane1Opacity = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.27],
+    [0, 0.13, 0.17],
     [1, 1, 0]
   );
-  const pane1Y = useTransform(scrollYProgress, [0, 0.27], ["0%", "-12%"]);
+  const pane1Y = useTransform(scrollYProgress, [0, 0.17], ["0%", "-10%"]);
 
   const pane2Opacity = useTransform(
     scrollYProgress,
-    [0.34, 0.39, 0.58, 0.63],
+    [0.2, 0.23, 0.36, 0.4],
     [0, 1, 1, 0]
   );
-  const pane2Y = useTransform(scrollYProgress, [0.34, 0.63], ["8%", "-8%"]);
+  const pane2Y = useTransform(scrollYProgress, [0.2, 0.4], ["8%", "-8%"]);
 
   const pane3Opacity = useTransform(
     scrollYProgress,
-    [0.72, 0.77, 0.96, 1],
+    [0.43, 0.46, 0.59, 0.63],
     [0, 1, 1, 0]
   );
-  const pane3Y = useTransform(scrollYProgress, [0.72, 1], ["8%", "-8%"]);
+  const pane3Y = useTransform(scrollYProgress, [0.43, 0.63], ["8%", "-8%"]);
+
+  const pane4Opacity = useTransform(
+    scrollYProgress,
+    [0.66, 0.69, 0.82, 0.86],
+    [0, 1, 1, 0]
+  );
+  const pane4Y = useTransform(scrollYProgress, [0.66, 0.86], ["8%", "-8%"]);
+
+  const pane5Opacity = useTransform(
+    scrollYProgress,
+    [0.89, 0.93, 1],
+    [0, 1, 1]
+  );
+  const pane5Y = useTransform(scrollYProgress, [0.89, 1], ["8%", "-2%"]);
 
   const scrollHintOpacity = useTransform(
     scrollYProgress,
@@ -85,9 +102,8 @@ export default function VideoShowcase() {
           </video>
         </motion.div>
 
-        {/* Text overlays — mix-blend-difference makes white text invert
-            against whatever pixels are behind it (light bg → dark text,
-            dark bg → light text). No dark overlay needed. */}
+        {/* Text overlays — mix-blend-difference inverts text against whatever
+            pixels are behind it (light bg → dark text, dark bg → light). */}
         <div
           className="relative z-10 h-full w-full px-8 sm:px-16"
           style={{ mixBlendMode: "difference" }}
@@ -111,7 +127,7 @@ export default function VideoShowcase() {
             </p>
           </motion.div>
 
-          {/* Pane 2 — bottom-right tagline */}
+          {/* Pane 2 — bottom-right mission */}
           <motion.div
             style={{ opacity: pane2Opacity, y: pane2Y }}
             className="absolute bottom-24 right-8 sm:right-16 max-w-3xl text-right text-white"
@@ -126,13 +142,43 @@ export default function VideoShowcase() {
             </h2>
           </motion.div>
 
-          {/* Pane 3 — centered caption */}
+          {/* Pane 3 — top-right range */}
           <motion.div
             style={{ opacity: pane3Opacity, y: pane3Y }}
+            className="absolute top-32 right-8 sm:right-16 max-w-3xl text-right text-white"
+          >
+            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
+              Range
+            </p>
+            <h2 className="text-6xl sm:text-8xl md:text-9xl font-semibold tracking-tight leading-[0.95]">
+              From research,
+              <br />
+              <span className="italic font-light">to production.</span>
+            </h2>
+          </motion.div>
+
+          {/* Pane 4 — bottom-left craft */}
+          <motion.div
+            style={{ opacity: pane4Opacity, y: pane4Y }}
+            className="absolute bottom-24 left-8 sm:left-16 max-w-3xl text-left text-white"
+          >
+            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
+              Craft
+            </p>
+            <h2 className="text-6xl sm:text-8xl md:text-9xl font-semibold tracking-tight leading-[0.95]">
+              Models that
+              <br />
+              <span className="italic font-light">make a difference.</span>
+            </h2>
+          </motion.div>
+
+          {/* Pane 5 — centered closing line */}
+          <motion.div
+            style={{ opacity: pane5Opacity, y: pane5Y }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-3xl text-center text-white px-6"
           >
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-8">
-              Craft
+              Closing
             </p>
             <p className="text-3xl sm:text-5xl font-light leading-snug">
               Every detail considered.

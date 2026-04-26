@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import GitHubHeatmap from "@/components/GitHubHeatmap";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -188,6 +189,20 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          custom={0}
+          variants={reveal}
+          className="mt-24 pt-12 border-t border-white/10"
+        >
+          <p className="font-mono text-[10px] text-white/50 tracking-[0.25em] uppercase mb-6">
+            Activity
+          </p>
+          <GitHubHeatmap username="BillDhawal" />
+        </motion.div>
       </div>
     </section>
   );
