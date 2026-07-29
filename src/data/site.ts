@@ -240,6 +240,7 @@ export const experience: Role[] = [
     title: "AI Engineer",
     period: "Jun 2026 — Present",
     location: "Portsmouth, NH",
+    logo: "/logos/avsi.png",
     client: { name: "FedPoint", logo: "/logos/fedpoint.png" },
     bullets: [
       "Authored a Terraform IaC stack of 80+ resources (VPC, IAM, KMS, Lambda, ECS, SQS, API Gateway, WAF, CloudWatch, Secrets Manager) that standardizes environment parity and cuts deployment time.",
