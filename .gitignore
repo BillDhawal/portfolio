@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw proof-of-work assets (optimized copies live in public/pow)
+POF_Assets/

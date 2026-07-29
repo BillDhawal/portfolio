@@ -2,66 +2,7 @@
 
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef } from "react";
-
-type Project = {
-  title: string;
-  blurb: string;
-  stack: string;
-  year: string;
-  href: string;
-  tint: string;
-};
-
-const projects: Project[] = [
-  {
-    title: "ColdConnect",
-    blurb: "An AI tool that helps you connect with the right job recruiters — drafts the cold email, finds the contact, sends it for you.",
-    stack: "TypeScript · LLMs",
-    year: "2025",
-    href: "https://github.com/BillDhawal/coldconnect",
-    tint: "from-indigo-500/20 to-transparent",
-  },
-  {
-    title: "Conversational AI for Enterprises",
-    blurb: "A framework for grounding LLM conversations in enterprise knowledge with retrieval and tool use.",
-    stack: "Python · LLMs · RAG",
-    year: "2026",
-    href: "https://github.com/BillDhawal/Conversational_AI_For_Enterprises",
-    tint: "from-emerald-500/20 to-transparent",
-  },
-  {
-    title: "Job Matching Engine",
-    blurb: "Semantic matching between candidate profiles and roles, ranked with embeddings and structured signals.",
-    stack: "Python · Embeddings",
-    year: "2026",
-    href: "https://github.com/BillDhawal/job-matching-engine",
-    tint: "from-rose-500/20 to-transparent",
-  },
-  {
-    title: "LangGraph Code Agent",
-    blurb: "An autonomous coding agent built on LangGraph — plans, edits, and verifies changes across a repository.",
-    stack: "Python · LangGraph",
-    year: "2025",
-    href: "https://github.com/BillDhawal/langgraph_codeagent",
-    tint: "from-amber-500/20 to-transparent",
-  },
-  {
-    title: "Fine-tuning Tutorials",
-    blurb: "Hands-on notebooks for adapting open-weight LLMs to specific tasks and domains.",
-    stack: "Python · PyTorch",
-    year: "2026",
-    href: "https://github.com/BillDhawal/finetuning_tutorials",
-    tint: "from-sky-500/20 to-transparent",
-  },
-  {
-    title: "Calorie Estimation",
-    blurb: "Deep-learning image classifier estimating calorie content from food photos.",
-    stack: "Python · CNNs",
-    year: "2020",
-    href: "https://github.com/BillDhawal/Calorie-Estimation---Deep-Learning-Image-Classification",
-    tint: "from-fuchsia-500/20 to-transparent",
-  },
-];
+import { projects, contact, type Project } from "@/data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -75,7 +16,7 @@ const reveal: Variants = {
 };
 
 function Card({ project, index }: { project: Project; index: number }) {
-  const ref = useRef<HTMLAnchorElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -84,17 +25,14 @@ function Card({ project, index }: { project: Project; index: number }) {
   const numberY = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
 
   return (
-    <motion.a
+    <motion.div
       ref={ref}
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-15% 0px" }}
       custom={0}
       variants={reveal}
-      className="group relative block border-t border-white/10 py-14 overflow-hidden"
+      className="group relative border-t border-white/10 py-14 overflow-hidden"
     >
       <div
         className={`absolute inset-0 bg-gradient-to-r ${project.tint} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
@@ -107,25 +45,37 @@ function Card({ project, index }: { project: Project; index: number }) {
         >
           0{index + 1}
         </motion.span>
-        <motion.h3
-          style={{ y: titleY }}
-          className="col-span-11 sm:col-span-5 text-3xl sm:text-5xl font-semibold tracking-tight"
-        >
-          {project.title}
-          <span className="inline-block ml-3 text-white/30 text-2xl group-hover:text-white/70 group-hover:translate-x-1 transition-all">
-            ↗
-          </span>
-        </motion.h3>
-        <motion.p
+        <motion.div style={{ y: titleY }} className="col-span-11 sm:col-span-5">
+          <h3 className="text-3xl sm:text-5xl font-semibold tracking-tight">
+            {project.title}
+          </h3>
+          <p className="mt-3 font-mono text-[11px] tracking-[0.2em] uppercase text-white/50">
+            {project.status}
+          </p>
+        </motion.div>
+        <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={1}
           variants={reveal}
-          className="col-span-12 sm:col-span-4 text-white/70 leading-relaxed"
+          className="col-span-12 sm:col-span-4"
         >
-          {project.blurb}
-        </motion.p>
+          <p className="text-white/70 leading-relaxed">{project.blurb}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 text-xs font-mono border border-white/15 rounded-full text-white/70 hover:text-white hover:border-white/40 hover:bg-white/[0.05] transition-colors"
+              >
+                {link.label} ↗
+              </a>
+            ))}
+          </div>
+        </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -138,7 +88,7 @@ function Card({ project, index }: { project: Project; index: number }) {
           <span>{project.year}</span>
         </motion.div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
 
@@ -191,7 +141,7 @@ export default function Work() {
         </div>
 
         <motion.a
-          href="https://github.com/BillDhawal"
+          href={contact.github}
           target="_blank"
           rel="noopener noreferrer"
           initial="hidden"
@@ -201,7 +151,7 @@ export default function Work() {
           variants={reveal}
           className="inline-flex items-center gap-2 mt-12 text-sm font-mono text-white/60 hover:text-white transition-colors"
         >
-          See all 42 repos on GitHub →
+          See more on GitHub →
         </motion.a>
       </div>
     </section>

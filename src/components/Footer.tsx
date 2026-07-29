@@ -53,7 +53,7 @@ export default function Footer() {
           variants={reveal}
           className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-12"
         >
-          03 — Get in touch
+          05 — Get in touch
         </motion.p>
         <motion.h2
           initial="hidden"

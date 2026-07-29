@@ -81,7 +81,7 @@ export default function About() {
         className="absolute right-8 sm:right-16 top-32 font-mono text-xs tracking-[0.3em] text-white/30 pointer-events-none"
         aria-hidden
       >
-        01 / 03
+        01 / 05
       </motion.div>
 
       <div className="max-w-6xl mx-auto relative">
