@@ -158,7 +158,7 @@ export const projects: Project[] = [
     title: "PubMed RAG",
     status: "MS Capstone · Team project",
     blurb:
-      "A RAG system answering biomedical queries over 18K+ PubMed articles with cited PubMed IDs — LangChain ReAct + Weaviate.",
+      "A RAG system answering biomedical queries over 18,000 PubMed articles with cited PubMed IDs — LangChain ReAct + Weaviate.",
     stack: "Python · LangChain · Weaviate",
     year: "2025",
     tint: "from-sky-500/20 to-transparent",
@@ -167,22 +167,29 @@ export const projects: Project[] = [
         label: "GitHub",
         href: "https://github.com/BillDhawal/RAG_PubMedCentral",
       },
+      {
+        label: "My 13 commits",
+        href: "https://github.com/BillDhawal/RAG_PubMedCentral/commits?author=BillDhawal",
+      },
     ],
     problem:
       "Biomedical answers must be grounded in the literature. A vanilla LLM hallucinates citations — disqualifying in this domain.",
     built: [
-      "Chunking + embeddings over 18K+ PubMed Central articles, stored in Weaviate.",
-      "LangChain ReAct agent for retrieval and reasoning.",
+      "Ingested 18,015 PubMed Central papers — 239,161 chunks, ~13 per document — embedded into Weaviate.",
+      "LangChain ReAct agent reasons over PubMed and Wikipedia retrievers.",
       "Every answer grounded with cited PubMed IDs.",
       "Streamlit UI for querying the literature in real time.",
     ],
-    role: "MS capstone (University of Arizona), team project — I built the RAG pipeline and the Streamlit UI.",
+    role: "MS capstone (University of Arizona), team of four — I built the RAG chain and the Streamlit UI. My 13 commits are linked above: agent context windows, LLM model switching, Weaviate configuration, and prompt engineering.",
     outcome:
-      "Citation-backed answers over the full corpus. The repo sits under the capstone fork — hence GitHub's fork banner.",
+      "Citation-backed answers over the full corpus, presented at the capstone showcase. The repo lives under the team fork — hence GitHub's fork banner.",
     images: [
       { src: "/pow/pubmed/ui-1.jpg", alt: "System architecture — Streamlit UI, LangChain ReAct agent, PubMed and Wikipedia retrievers over Weaviate" },
       { src: "/pow/pubmed/ui-2.jpg", alt: "The app answering a cardiovascular-risk query with findings cited by PubMed ID" },
-      { src: "/pow/pubmed/ui-3.jpg", alt: "PubMed RAG interface screenshot" },
+      {
+        src: "/pow/pubmed/ui-3.jpg",
+        alt: "Presenting the PubMed Agentic RAG poster at the University of Arizona capstone showcase",
+      },
     ],
     imageLayout: "wide",
   },

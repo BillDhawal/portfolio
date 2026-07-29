@@ -89,14 +89,12 @@ export default function ProofOfWork() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                   <div
                     className={
-                      project.videoId || project.video
-                        ? "lg:col-span-7"
-                        : project.imageLayout === "phone"
-                          ? "lg:col-span-9"
-                          : "lg:col-span-12"
+                      project.imageLayout === "phone"
+                        ? "lg:col-span-8"
+                        : "lg:col-span-6"
                     }
                   >
-                    <dl className="space-y-5 text-white/80 leading-relaxed max-w-[70ch]">
+                    <dl className="space-y-5 text-white/80 leading-relaxed">
                       <div>
                         <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-1">
                           Problem
@@ -151,7 +149,7 @@ export default function ProofOfWork() {
                   </div>
 
                   {(project.videoId || project.video) && (
-                    <div className="lg:col-span-5 lg:sticky lg:top-12">
+                    <div className="lg:col-span-6 lg:sticky lg:top-12">
                       {project.videoId ? (
                         <YouTubeEmbed
                           videoId={project.videoId}
@@ -164,13 +162,13 @@ export default function ProofOfWork() {
                   )}
 
                   {project.images && project.imageLayout === "phone" && (
-                    <div className="lg:col-span-3 lg:sticky lg:top-12">
+                    <div className="lg:col-span-4 lg:sticky lg:top-12">
                       <ScreenshotMarquee images={project.images} />
                     </div>
                   )}
 
                   {project.images && project.imageLayout !== "phone" && (
-                    <div className="lg:col-span-12">
+                    <div className="lg:col-span-6 lg:sticky lg:top-12">
                       <ScreenshotMarquee
                         images={project.images}
                         layout="wide"

@@ -11,9 +11,10 @@ export default function ScreenshotMarquee({
   layout?: "phone" | "wide";
 }) {
   // Phone shots run tall and narrow so the strip reads as a device screen.
-  // Wide shots sit in a 2.39:1 anamorphic frame — the cinematic ratio.
+  // Wide shots (diagrams, desktop UI) fill a 16:10 frame so they stay legible
+  // at half-width.
   const isPhone = layout === "phone";
-  const frame = isPhone ? "mx-auto max-w-[230px]" : "";
+  const frame = isPhone ? "mx-auto max-w-[280px]" : "";
 
   // Two identical groups back-to-back; animating to -50% loops seamlessly.
   const loop = [...images, ...images];
@@ -22,7 +23,7 @@ export default function ScreenshotMarquee({
     <figure className={`relative ${frame}`}>
       <div
         className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
-        style={isPhone ? undefined : { aspectRatio: "2.39 / 1" }}
+        style={isPhone ? undefined : { aspectRatio: "16 / 10" }}
       >
         <div
           className="marquee-track flex w-max h-full items-center py-3"
@@ -37,7 +38,7 @@ export default function ScreenshotMarquee({
               aria-hidden={i >= images.length}
               loading="lazy"
               className={`${
-                isPhone ? "h-[420px]" : "max-h-full"
+                isPhone ? "h-[500px]" : "max-h-full"
               } w-auto rounded-lg border border-white/10 mx-1.5 first:ml-3`}
             />
           ))}
