@@ -130,6 +130,14 @@ export default function ProofOfWork() {
                         </dt>
                         <dd>{project.outcome}</dd>
                       </div>
+                      {project.credit && (
+                        <div>
+                          <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-1">
+                            Credit
+                          </dt>
+                          <dd className="text-white/60">{project.credit}</dd>
+                        </div>
+                      )}
                     </dl>
 
                     <div className="mt-6 flex flex-wrap gap-2">

@@ -27,6 +27,7 @@ export type Project = {
   videoId?: string; // YouTube id of a demo, embedded inline where present
   video?: string; // self-hosted demo video (path under /public)
   videoCaption?: string; // context line under the player
+  credit?: string; // attribution for work this project builds on
   images?: ProjectImage[]; // screenshots, shown in a hover-scroll gallery
   imageLayout?: "phone" | "wide" | "doc"; // phone = tall device shots, doc = portrait article/page captures
 };
@@ -238,6 +239,14 @@ export const projects: Project[] = [
         label: "Article series",
         href: "https://www.linkedin.com/pulse/implementing-transformers-from-scratch-part-1-input-dhawal-gajwe-0bnwf/",
       },
+      {
+        label: "Umar Jamil — repo",
+        href: "https://github.com/hkproj/pytorch-transformer",
+      },
+      {
+        label: "Umar Jamil — video",
+        href: "https://www.youtube.com/watch?v=ISNdQcPhsts",
+      },
     ],
     problem:
       "Using transformers is easy. Understanding them is not. I wanted to build one from a blank file — and explain every component.",
@@ -247,9 +256,11 @@ export const projects: Project[] = [
       "Trained on opus_books for English→Italian translation.",
       "4-part article series explaining each component.",
     ],
-    role: "Solo — implementation and writing.",
+    role: "Solo — I coded the architecture along with Umar Jamil's from-scratch walkthrough, then wrote the 4-part series explaining each component in my own words.",
     outcome:
       "A working translation model and a published 4-part series that readers followed along with.",
+    credit:
+      "Architecture code follows Umar Jamil's excellent from-scratch Transformer walkthrough — his YouTube series and hkproj/pytorch-transformer were my reference throughout. Both are linked above.",
     images: [
       {
         src: "/pow/transformers/part-1.jpg",
