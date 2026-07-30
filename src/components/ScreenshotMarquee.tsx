@@ -8,13 +8,14 @@ export default function ScreenshotMarquee({
   layout = "phone",
 }: {
   images: ProjectImage[];
-  layout?: "phone" | "wide";
+  layout?: "phone" | "wide" | "doc";
 }) {
   // Phone shots run tall and narrow so the strip reads as a device screen.
-  // Wide shots (diagrams, desktop UI) fill a 16:10 frame so they stay legible
-  // at half-width.
+  // Wide shots (diagrams, desktop UI) fill a 16:10 frame; doc shots (article
+  // and post captures) get a squarer frame so their text stays readable.
   const isPhone = layout === "phone";
   const frame = isPhone ? "mx-auto max-w-[280px]" : "";
+  const ratio = layout === "doc" ? "1 / 1" : "16 / 10";
 
   // Two identical groups back-to-back; animating to -50% loops seamlessly.
   const loop = [...images, ...images];
@@ -23,7 +24,7 @@ export default function ScreenshotMarquee({
     <figure className={`relative ${frame}`}>
       <div
         className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
-        style={isPhone ? undefined : { aspectRatio: "16 / 10" }}
+        style={isPhone ? undefined : { aspectRatio: ratio }}
       >
         <div
           className="marquee-track flex w-max h-full items-center py-3"

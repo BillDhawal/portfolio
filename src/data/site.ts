@@ -28,7 +28,7 @@ export type Project = {
   video?: string; // self-hosted demo video (path under /public)
   videoCaption?: string; // context line under the player
   images?: ProjectImage[]; // screenshots, shown in a hover-scroll gallery
-  imageLayout?: "phone" | "wide"; // phone = 2-col grid of tall shots
+  imageLayout?: "phone" | "wide" | "doc"; // phone = tall device shots, doc = portrait article/page captures
 };
 
 export const projects: Project[] = [
@@ -248,7 +248,23 @@ export const projects: Project[] = [
       "4-part article series explaining each component.",
     ],
     role: "Solo — implementation and writing.",
-    outcome: "A working translation model and a published 4-part series.",
+    outcome:
+      "A working translation model and a published 4-part series that readers followed along with.",
+    images: [
+      {
+        src: "/pow/transformers/part-1.jpg",
+        alt: "Part 1 of the series — Input Embeddings, published on LinkedIn",
+      },
+      {
+        src: "/pow/transformers/part-2.jpg",
+        alt: "Part 2 of the series — Positional Encoding",
+      },
+      {
+        src: "/pow/transformers/part-3.jpg",
+        alt: "Part 4 of the series — Multi-Head Attention",
+      },
+    ],
+    imageLayout: "doc",
   },
 ];
 
