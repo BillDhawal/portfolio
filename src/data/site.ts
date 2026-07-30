@@ -26,6 +26,7 @@ export type Project = {
   outcome: string;
   videoId?: string; // YouTube id of a demo, embedded inline where present
   video?: string; // self-hosted demo video (path under /public)
+  videoCaption?: string; // context line under the player
   images?: ProjectImage[]; // screenshots, shown in a hover-scroll gallery
   imageLayout?: "phone" | "wide"; // phone = 2-col grid of tall shots
 };
@@ -69,6 +70,33 @@ export const projects: Project[] = [
       },
     ],
     imageLayout: "wide",
+  },
+  {
+    title: "Voice AI Order Agent — Digirestro",
+    status: "Client work · Built from scratch",
+    blurb:
+      "Voice agents that take restaurant orders and reservations by phone, integrated with the client's kitchen POS. The AI was the easy part — real-time audio, barge-in, and accents are where the engineering lives.",
+    stack: "Vapi · Azure AI Foundry · Azure · Real-time audio",
+    year: "2026",
+    tint: "from-violet-500/20 to-transparent",
+    links: [],
+    problem:
+      "Digirestro, a startup building POS and payment systems for restaurants, wanted voice AI agents to take orders and reservations over the phone — restaurants lose revenue every time nobody can pick up at peak hours. Getting an LLM to hold the conversation is straightforward; making it feel human on a real phone line is not.",
+    built: [
+      "Built the system from scratch and integrated it with Digirestro's kitchen POS, so a phone order reaches the kitchen the same way a counter order does.",
+      "Evaluated three platforms end to end — Azure Voice Live (full pipeline control, but you build the telephony bridge yourself), Infobip (solid telephony, not designed for AI agents), and Vapi (managed STT + LLM + TTS).",
+      "Shipped the first version on Infobip, then hit a wall: it buffers up to 1024 audio frames (~20 seconds) with no way to flush mid-stream, so the agent physically could not be interrupted.",
+      "Solved barge-in with real-time audio frame pacing that keeps the buffer nearly empty. A 3ms difference in frame timing — 17ms versus 20ms — was the line between responsive and broken.",
+      "Migrated to Vapi for agent orchestration: dynamic per-restaurant agent creation, plus tool integrations for date/time handling and a menu refresh service.",
+      "Built a restaurant onboarding flow so a new venue is provisioned with its own agent and menu.",
+      "Deployed on Azure using Azure AI Foundry resources, with a database for orders and history, and analytics tracking per-model cost.",
+    ],
+    role: "Solo — built the product end to end for the client: platform evaluation, the real-time audio pipeline and barge-in fix, POS integration, Azure deployment, agent orchestration, and the cost-analytics layer.",
+    outcome:
+      "Interruption latency went from 1–3 seconds to under 100ms, and orders flow from a phone call straight into the kitchen POS. The honest finding: speech models still mishear regional accents — 'biryani' comes back as 'burrito' — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
+    video: "/pow/voiceai/demo.mp4",
+    videoCaption:
+      "Early demo — the Infobip build. The product has since moved to Vapi, with restaurant onboarding, dynamic agent creation, and tool integrations.",
   },
   {
     title: "ProdShoot — AI Product Photography",

@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 // sound and scrubbing.
 export default function AutoPlayVideo({
   src,
-  caption = "Plays on scroll · unmute in player",
+  caption,
 }: {
   src: string;
   caption?: string;
@@ -46,8 +46,8 @@ export default function AutoPlayVideo({
           <source src={src} type="video/mp4" />
         </video>
       </div>
-      <figcaption className="mt-2 text-center font-mono text-[10px] tracking-[0.25em] uppercase text-white/30">
-        {caption}
+      <figcaption className="mt-3 text-sm text-white/45 leading-relaxed">
+        {caption ?? "Plays on scroll — unmute in the player."}
       </figcaption>
     </figure>
   );

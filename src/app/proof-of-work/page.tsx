@@ -156,7 +156,10 @@ export default function ProofOfWork() {
                           title={`${project.title} — demo`}
                         />
                       ) : (
-                        <AutoPlayVideo src={project.video!} />
+                        <AutoPlayVideo
+                          src={project.video!}
+                          caption={project.videoCaption}
+                        />
                       )}
                     </div>
                   )}
