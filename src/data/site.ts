@@ -94,7 +94,7 @@ export const projects: Project[] = [
     ],
     role: "Solo — built the product end to end for the client: platform evaluation, the real-time audio pipeline and barge-in fix, POS integration, Azure deployment, agent orchestration, and the cost-analytics layer.",
     outcome:
-      "Interruption latency went from 1–3 seconds to under 100ms, and orders flow from a phone call straight into the kitchen POS. The honest finding: speech models still mishear regional accents — 'biryani' comes back as 'burrito' — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
+      "Interruption latency went from 1–3 seconds to under 100ms, and orders flow from a phone call straight into the kitchen POS. The honest finding: speech models still mishear regional accents, returning common dish names as phonetically similar English words — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
     video: "/pow/voiceai/demo.mp4",
     videoCaption:
       "Early demo — the Infobip build. The product has since moved to Vapi, with restaurant onboarding, dynamic agent creation, and tool integrations.",
