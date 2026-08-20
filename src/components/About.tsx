@@ -134,7 +134,24 @@ export default function About() {
                   variants={reveal}
                   className="block"
                 >
-                  {i === 1 ? (
+                  {i === 0 ? (
+                    <span className="relative inline-block">
+                      <video
+                        src="/profile.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        aria-hidden
+                        className="absolute inset-0 h-full w-full object-cover object-[50%_12%] saturate-150"
+                      />
+                      {/* screen blend: white stays white, black glyphs
+                          become windows into the video behind */}
+                      <span className="relative block bg-white text-black mix-blend-screen">
+                        {line}
+                      </span>
+                    </span>
+                  ) : i === 1 ? (
                     <span className="italic font-light text-black/60">
                       {line}
                     </span>
