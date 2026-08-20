@@ -159,12 +159,6 @@ export default function VideoShowcase() {
           >
             SCROLL ↓
           </motion.div>
-          <div className="absolute top-6 left-8 sm:left-16 text-xs font-mono tracking-widest text-white">
-            DG · 2026
-          </div>
-          <div className="absolute top-6 right-8 sm:right-16 text-xs font-mono tracking-widest text-white">
-            SHOWCASE / 01
-          </div>
         </div>
 
       </div>
