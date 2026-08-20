@@ -30,52 +30,64 @@ export default function VideoShowcase() {
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.04, 1.12]);
 
-  // Five panes across 400vh — roughly one pane per scroll, with a brief
-  // empty buffer between each so they never overlap.
+  // Five panes across 400vh. Pane 1 clears fast — the name lifts away within
+  // roughly two scroll notches — then each following pane drifts up through
+  // the frame. Eyebrow labels move slower than their headlines; that speed
+  // difference between layers is what reads as parallax.
   //
-  //   pane 1 (Name)    : visible 0    .. 0.13, fade out .. 0.17
-  //   pane 2 (Mission) : fade in 0.20 .. 0.23, visible .. 0.36, fade .. 0.40
-  //   pane 3 (Range)   : fade in 0.43 .. 0.46, visible .. 0.59, fade .. 0.63
-  //   pane 4 (Craft)   : fade in 0.66 .. 0.69, visible .. 0.82, fade .. 0.86
-  //   pane 5 (Closing) : fade in 0.89 .. 0.93, visible .. 1.0
+  //   pane 1 (Name)     : visible 0    .. 0.02, lifts out .. 0.07
+  //   pane 2 (Approach) : fade in 0.08 .. 0.12, visible .. 0.30, fade .. 0.35
+  //   pane 3 (Range)    : fade in 0.38 .. 0.42, visible .. 0.57, fade .. 0.62
+  //   pane 4 (Craft)    : fade in 0.65 .. 0.69, visible .. 0.83, fade .. 0.88
+  //   pane 5 (Closing)  : fade in 0.90 .. 0.94, visible .. 1.0
   const pane1Opacity = useTransform(
     scrollYProgress,
-    [0, 0.13, 0.17],
+    [0, 0.02, 0.07],
     [1, 1, 0]
   );
-  const pane1Y = useTransform(scrollYProgress, [0, 0.17], ["0%", "-10%"]);
+  const pane1Y = useTransform(scrollYProgress, [0, 0.07], ["0%", "-60%"]);
+  const pane1LabelY = useTransform(
+    scrollYProgress,
+    [0, 0.07],
+    ["0%", "-25%"]
+  );
 
   const pane2Opacity = useTransform(
     scrollYProgress,
-    [0.2, 0.23, 0.36, 0.4],
+    [0.08, 0.12, 0.3, 0.35],
     [0, 1, 1, 0]
   );
-  const pane2Y = useTransform(scrollYProgress, [0.2, 0.4], ["8%", "-8%"]);
+  const pane2Y = useTransform(scrollYProgress, [0.08, 0.35], ["45%", "-45%"]);
+  const pane2LabelY = useTransform(
+    scrollYProgress,
+    [0.08, 0.35],
+    ["22%", "-22%"]
+  );
 
   const pane3Opacity = useTransform(
     scrollYProgress,
-    [0.43, 0.46, 0.59, 0.63],
+    [0.38, 0.42, 0.57, 0.62],
     [0, 1, 1, 0]
   );
-  const pane3Y = useTransform(scrollYProgress, [0.43, 0.63], ["8%", "-8%"]);
+  const pane3Y = useTransform(scrollYProgress, [0.38, 0.62], ["35%", "-35%"]);
 
   const pane4Opacity = useTransform(
     scrollYProgress,
-    [0.66, 0.69, 0.82, 0.86],
+    [0.65, 0.69, 0.83, 0.88],
     [0, 1, 1, 0]
   );
-  const pane4Y = useTransform(scrollYProgress, [0.66, 0.86], ["8%", "-8%"]);
+  const pane4Y = useTransform(scrollYProgress, [0.65, 0.88], ["35%", "-35%"]);
 
   const pane5Opacity = useTransform(
     scrollYProgress,
-    [0.89, 0.93, 1],
+    [0.9, 0.94, 1],
     [0, 1, 1]
   );
-  const pane5Y = useTransform(scrollYProgress, [0.89, 1], ["8%", "-2%"]);
+  const pane5Y = useTransform(scrollYProgress, [0.9, 1], ["30%", "-5%"]);
 
   const scrollHintOpacity = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.95, 1],
+    [0, 0.02, 0.06, 1],
     [1, 1, 0, 0]
   );
 
@@ -112,9 +124,12 @@ export default function VideoShowcase() {
             style={{ opacity: pane1Opacity, y: pane1Y }}
             className="absolute top-1/2 left-8 sm:left-16 -translate-y-1/2 max-w-3xl text-white"
           >
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
+            <motion.p
+              style={{ y: pane1LabelY }}
+              className="font-mono text-xs tracking-[0.3em] uppercase mb-6"
+            >
               Portfolio · 2026
-            </p>
+            </motion.p>
             <h1 className="text-7xl sm:text-9xl md:text-[10rem] font-semibold tracking-tight leading-[0.95]">
               Dhawal
               <br />
@@ -131,9 +146,12 @@ export default function VideoShowcase() {
             style={{ opacity: pane2Opacity, y: pane2Y }}
             className="absolute bottom-24 right-8 sm:right-16 max-w-5xl text-right text-white"
           >
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
+            <motion.p
+              style={{ y: pane2LabelY }}
+              className="font-mono text-xs tracking-[0.3em] uppercase mb-6"
+            >
               Approach
-            </p>
+            </motion.p>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
               The AI is the easy part.
               <br />
