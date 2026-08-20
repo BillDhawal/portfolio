@@ -32,7 +32,7 @@ export default function Writing() {
     >
       <motion.div
         style={{ y: wordY }}
-        className="absolute right-0 top-0 text-[14rem] sm:text-[20rem] font-bold text-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="absolute right-0 top-0 text-[14rem] sm:text-[20rem] font-bold text-black/[0.025] select-none pointer-events-none whitespace-nowrap"
         aria-hidden
       >
         WRITING
@@ -45,7 +45,7 @@ export default function Writing() {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={0}
           variants={reveal}
-          className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-12"
+          className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-12"
         >
           04 — Writing &amp; Videos
         </motion.p>
@@ -58,7 +58,7 @@ export default function Writing() {
           className="text-4xl sm:text-6xl md:text-7xl font-semibold leading-[1.05] mb-20 max-w-3xl"
         >
           I build in public —{" "}
-          <span className="italic font-light text-white/60">
+          <span className="italic font-light text-black/60">
             and explain how.
           </span>
         </motion.h2>
@@ -77,14 +77,14 @@ export default function Writing() {
               <YouTubeEmbed videoId={video.id} title={video.title} />
               <h3 className="mt-4 text-lg font-medium">{video.title}</h3>
               {video.note && (
-                <p className="mt-1 text-sm text-white/50">{video.note}</p>
+                <p className="mt-1 text-sm text-black/50">{video.note}</p>
               )}
             </motion.div>
           ))}
         </div>
 
         {/* Articles */}
-        <div className="border-b border-white/10">
+        <div className="border-b border-black/10">
           {articles.map((article, i) => (
             <motion.a
               key={article.href}
@@ -96,15 +96,15 @@ export default function Writing() {
               viewport={{ once: true, margin: "-10% 0px" }}
               custom={i}
               variants={reveal}
-              className="group flex items-baseline justify-between gap-6 border-t border-white/10 py-6 hover:bg-white/[0.02] transition-colors"
+              className="group flex items-baseline justify-between gap-6 border-t border-black/10 py-6 hover:bg-black/[0.02] transition-colors"
             >
               <span className="text-lg sm:text-xl group-hover:translate-x-1 transition-transform">
                 {article.title}
-                <span className="inline-block ml-3 text-white/30 group-hover:text-white/70 transition-colors">
+                <span className="inline-block ml-3 text-black/30 group-hover:text-black/70 transition-colors">
                   ↗
                 </span>
               </span>
-              <span className="font-mono text-xs text-white/40 tracking-widest shrink-0">
+              <span className="font-mono text-xs text-black/40 tracking-widest shrink-0">
                 {article.source.toUpperCase()}
               </span>
             </motion.a>

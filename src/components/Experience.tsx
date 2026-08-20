@@ -32,7 +32,7 @@ export default function Experience() {
     >
       <motion.div
         style={{ y: wordY }}
-        className="absolute -left-10 top-0 text-[13rem] sm:text-[19rem] font-bold text-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="absolute -left-10 top-0 text-[13rem] sm:text-[19rem] font-bold text-black/[0.025] select-none pointer-events-none whitespace-nowrap"
         aria-hidden
       >
         EXPERIENCE
@@ -45,7 +45,7 @@ export default function Experience() {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={0}
           variants={reveal}
-          className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-12"
+          className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-12"
         >
           03 — Experience
         </motion.p>
@@ -58,12 +58,12 @@ export default function Experience() {
           className="text-4xl sm:text-6xl md:text-7xl font-semibold leading-[1.05] mb-20 max-w-3xl"
         >
           Six years shipping{" "}
-          <span className="italic font-light text-white/60">
+          <span className="italic font-light text-black/60">
             production systems.
           </span>
         </motion.h2>
 
-        <div className="border-b border-white/10">
+        <div className="border-b border-black/10">
           {experience.map((role, i) => (
             <motion.div
               key={role.company}
@@ -72,7 +72,7 @@ export default function Experience() {
               viewport={{ once: true, margin: "-10% 0px" }}
               custom={i}
               variants={reveal}
-              className="border-t border-white/10 py-12 grid grid-cols-1 sm:grid-cols-12 gap-6"
+              className="border-t border-black/10 py-12 grid grid-cols-1 sm:grid-cols-12 gap-6"
             >
               <div className="sm:col-span-4">
                 <div className="flex items-center gap-4">
@@ -81,16 +81,16 @@ export default function Experience() {
                     {role.company}
                   </h3>
                 </div>
-                <p className="mt-3 text-white/60">{role.title}</p>
+                <p className="mt-3 text-black/60">{role.title}</p>
                 {role.client && (
                   <div className="mt-3">
                     <ClientBadge client={role.client} />
                   </div>
                 )}
-                <p className="mt-3 font-mono text-xs text-white/40 tracking-widest">
+                <p className="mt-3 font-mono text-xs text-black/40 tracking-widest">
                   {role.period}
                 </p>
-                <p className="font-mono text-xs text-white/40 tracking-widest">
+                <p className="font-mono text-xs text-black/40 tracking-widest">
                   {role.location.toUpperCase()}
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function Experience() {
                 {role.bullets.map((bullet, j) => (
                   <li
                     key={j}
-                    className="text-white/70 leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-white/30"
+                    className="text-black/70 leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
                   >
                     {bullet}
                   </li>

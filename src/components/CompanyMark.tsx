@@ -16,7 +16,7 @@ export function LogoChip({
   if (!logo) {
     return (
       <span
-        className={`${box} shrink-0 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center font-mono text-[10px] tracking-wider text-white/70`}
+        className={`${box} shrink-0 rounded-lg bg-[var(--card-bg)] border border-[color:var(--card-border)] flex items-center justify-center font-mono text-[10px] tracking-wider text-[color:var(--muted)]`}
         aria-hidden
       >
         {name
@@ -30,7 +30,7 @@ export function LogoChip({
   }
   return (
     <span
-      className={`${box} shrink-0 rounded-lg bg-white flex items-center justify-center overflow-hidden ${
+      className={`${box} shrink-0 rounded-lg bg-white border border-[color:var(--card-border)] flex items-center justify-center overflow-hidden ${
         size === "md" ? "p-1.5" : "p-0.5"
       }`}
     >
@@ -46,9 +46,9 @@ export function LogoChip({
 
 export function ClientBadge({ client }: { client: NonNullable<Role["client"]> }) {
   return (
-    <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/15 rounded-full">
+    <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-[color:var(--card-border)] rounded-full">
       <LogoChip logo={client.logo} name={client.name} size="sm" />
-      <span className="font-mono text-xs text-white/70">
+      <span className="font-mono text-xs text-[color:var(--muted)]">
         Client: {client.name}
       </span>
     </span>

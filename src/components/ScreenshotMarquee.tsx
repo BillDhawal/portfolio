@@ -23,7 +23,7 @@ export default function ScreenshotMarquee({
   return (
     <figure className={`relative ${frame}`}>
       <div
-        className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+        className="overflow-hidden rounded-xl border border-[color:var(--card-border)] bg-[var(--card-bg)]"
         style={isPhone ? undefined : { aspectRatio: ratio }}
       >
         <div
@@ -40,7 +40,7 @@ export default function ScreenshotMarquee({
               loading="lazy"
               className={`${
                 isPhone ? "h-[500px]" : "max-h-full"
-              } w-auto rounded-lg border border-white/10 mx-1.5 first:ml-3`}
+              } w-auto rounded-lg border border-[color:var(--card-border)] mx-1.5 first:ml-3`}
             />
           ))}
         </div>

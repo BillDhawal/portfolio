@@ -32,7 +32,7 @@ function Card({ project, index }: { project: Project; index: number }) {
       viewport={{ once: true, margin: "-15% 0px" }}
       custom={0}
       variants={reveal}
-      className="group relative border-t border-white/10 py-14 overflow-hidden"
+      className="group relative border-t border-black/10 py-14 overflow-hidden"
     >
       <div
         className={`absolute inset-0 bg-gradient-to-r ${project.tint} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}
@@ -41,7 +41,7 @@ function Card({ project, index }: { project: Project; index: number }) {
       <div className="relative grid grid-cols-12 gap-6 items-baseline">
         <motion.span
           style={{ y: numberY }}
-          className="col-span-1 font-mono text-xs text-white/40"
+          className="col-span-1 font-mono text-xs text-black/40"
         >
           0{index + 1}
         </motion.span>
@@ -49,7 +49,7 @@ function Card({ project, index }: { project: Project; index: number }) {
           <h3 className="text-3xl sm:text-5xl font-semibold tracking-tight">
             {project.title}
           </h3>
-          <p className="mt-3 font-mono text-[11px] tracking-[0.2em] uppercase text-white/50">
+          <p className="mt-3 font-mono text-[11px] tracking-[0.2em] uppercase text-black/50">
             {project.status}
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ function Card({ project, index }: { project: Project; index: number }) {
           variants={reveal}
           className="col-span-12 sm:col-span-4"
         >
-          <p className="text-white/70 leading-relaxed">{project.blurb}</p>
+          <p className="text-black/70 leading-relaxed">{project.blurb}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {project.links.map((link) => (
               <a
@@ -69,7 +69,7 @@ function Card({ project, index }: { project: Project; index: number }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 text-xs font-mono border border-white/15 rounded-full text-white/70 hover:text-white hover:border-white/40 hover:bg-white/[0.05] transition-colors"
+                className="px-3 py-1.5 text-xs font-mono border border-black/15 rounded-full text-black/70 hover:text-black hover:border-black/40 hover:bg-black/[0.05] transition-colors"
               >
                 {link.label} ↗
               </a>
@@ -82,7 +82,7 @@ function Card({ project, index }: { project: Project; index: number }) {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={2}
           variants={reveal}
-          className="col-span-12 sm:col-span-2 flex flex-col text-right text-sm font-mono text-white/50"
+          className="col-span-12 sm:col-span-2 flex flex-col text-right text-sm font-mono text-black/50"
         >
           <span>{project.stack}</span>
           <span>{project.year}</span>
@@ -104,7 +104,7 @@ export default function Work() {
     <section id="work" ref={ref} className="relative py-40 px-6 sm:px-16 overflow-hidden">
       <motion.div
         style={{ y: wordY }}
-        className="absolute right-0 -top-10 text-[16rem] sm:text-[22rem] font-bold text-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="absolute right-0 -top-10 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] select-none pointer-events-none whitespace-nowrap"
         aria-hidden
       >
         WORK
@@ -117,7 +117,7 @@ export default function Work() {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={0}
           variants={reveal}
-          className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-12"
+          className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-12"
         >
           02 — Selected Work
         </motion.p>
@@ -130,11 +130,11 @@ export default function Work() {
           className="text-4xl sm:text-6xl md:text-7xl font-semibold leading-[1.05] mb-20 max-w-3xl"
         >
           A few things I&apos;ve had the{" "}
-          <span className="italic font-light text-white/60">privilege</span>{" "}
+          <span className="italic font-light text-black/60">privilege</span>{" "}
           of building.
         </motion.h2>
 
-        <div className="border-b border-white/10">
+        <div className="border-b border-black/10">
           {projects.map((p, i) => (
             <Card key={p.title} project={p} index={i} />
           ))}
@@ -149,7 +149,7 @@ export default function Work() {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={2}
           variants={reveal}
-          className="inline-flex items-center gap-2 mt-12 text-sm font-mono text-white/60 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 mt-12 text-sm font-mono text-black/60 hover:text-black transition-colors"
         >
           See more on GitHub →
         </motion.a>

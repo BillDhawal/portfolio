@@ -48,7 +48,7 @@ export default function YouTubeEmbed({
 
   return (
     <figure ref={containerRef}>
-      <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
+      <div className="rounded-xl border border-[color:var(--card-border)] bg-[var(--card-bg)] p-3">
         <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-black">
           <iframe
             ref={iframeRef}
@@ -61,7 +61,7 @@ export default function YouTubeEmbed({
           />
         </div>
       </div>
-      <figcaption className="mt-2 text-center font-mono text-[10px] tracking-[0.25em] uppercase text-white/30">
+      <figcaption className="mt-2 text-center font-mono text-[10px] tracking-[0.25em] uppercase text-[color:var(--muted)]">
         {caption}
       </figcaption>
     </figure>

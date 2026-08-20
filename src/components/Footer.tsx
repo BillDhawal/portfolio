@@ -34,11 +34,11 @@ export default function Footer() {
     <footer
       id="contact"
       ref={ref}
-      className="relative py-40 px-6 sm:px-16 overflow-hidden border-t border-white/10"
+      className="relative py-40 px-6 sm:px-16 overflow-hidden border-t border-black/10"
     >
       <motion.div
         style={{ y: wordY }}
-        className="absolute -left-10 bottom-10 text-[16rem] sm:text-[24rem] font-bold text-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="absolute -left-10 bottom-10 text-[16rem] sm:text-[24rem] font-bold text-black/[0.025] select-none pointer-events-none whitespace-nowrap"
         aria-hidden
       >
         SAY HI
@@ -51,7 +51,7 @@ export default function Footer() {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={0}
           variants={reveal}
-          className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-12"
+          className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-12"
         >
           05 — Get in touch
         </motion.p>
@@ -65,7 +65,7 @@ export default function Footer() {
         >
           Let&apos;s build
           <br />
-          <span className="italic font-light text-white/60">
+          <span className="italic font-light text-black/60">
             something good.
           </span>
         </motion.h2>
@@ -82,9 +82,9 @@ export default function Footer() {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group flex flex-col p-8 border border-white/10 rounded-2xl hover:border-white/30 hover:bg-white/[0.02] transition-all"
+              className="group flex flex-col p-8 border border-black/10 rounded-2xl hover:border-black/30 hover:bg-black/[0.02] transition-all"
             >
-              <span className="font-mono text-xs text-white/50 tracking-widest mb-3">
+              <span className="font-mono text-xs text-black/50 tracking-widest mb-3">
                 {link.label.toUpperCase()}
               </span>
               <span className="text-2xl group-hover:translate-x-1 transition-transform">
@@ -100,7 +100,7 @@ export default function Footer() {
           viewport={{ once: true, margin: "-15% 0px" }}
           custom={6}
           variants={reveal}
-          className="mt-32 flex justify-between items-center text-xs font-mono text-white/40 tracking-widest"
+          className="mt-32 flex justify-between items-center text-xs font-mono text-black/40 tracking-widest"
         >
           <span>© 2026 DHAWAL GAJWE</span>
           <span>BUILT WITH NEXT.JS</span>

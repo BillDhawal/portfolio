@@ -33,7 +33,7 @@ export default function AutoPlayVideo({
 
   return (
     <figure>
-      <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
+      <div className="rounded-xl border border-[color:var(--card-border)] bg-[var(--card-bg)] p-3">
         <video
           ref={videoRef}
           controls
@@ -46,7 +46,7 @@ export default function AutoPlayVideo({
           <source src={src} type="video/mp4" />
         </video>
       </div>
-      <figcaption className="mt-3 text-sm text-white/45 leading-relaxed">
+      <figcaption className="mt-3 text-sm text-[color:var(--muted)] leading-relaxed">
         {caption ?? "Plays on scroll — unmute in the player."}
       </figcaption>
     </figure>

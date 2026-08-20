@@ -129,11 +129,11 @@ export default function BackgroundMusic() {
         onClick={handleToggle}
         aria-label={enabled ? "Mute background music" : "Play background music"}
         aria-pressed={enabled}
-        className="fixed bottom-6 right-6 z-50 group flex items-center gap-2 rounded-full border border-white/15 bg-black/60 backdrop-blur-md px-4 py-3 text-xs font-mono tracking-widest text-white/80 hover:text-white hover:border-white/40 transition-colors"
+        className="fixed bottom-6 right-6 z-50 group flex items-center gap-2 rounded-full border border-black/15 bg-white/70 backdrop-blur-md px-4 py-3 text-xs font-mono tracking-widest text-black/80 hover:text-black hover:border-black/40 transition-colors"
       >
         <span
           className={`relative inline-flex h-2.5 w-2.5 rounded-full ${
-            enabled ? "bg-emerald-400" : "bg-white/40"
+            enabled ? "bg-emerald-400" : "bg-black/40"
           }`}
         >
           {enabled && (

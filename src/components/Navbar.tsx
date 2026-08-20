@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-md bg-black/40 border-b border-white/10"
+          ? "backdrop-blur-md bg-white/70 border-b border-black/10"
           : "bg-transparent"
       }`}
     >
@@ -24,40 +24,40 @@ export default function Navbar() {
         <a href="#top" className="font-mono text-sm tracking-wider">
           DG.
         </a>
-        <div className="flex items-center gap-6 sm:gap-8 text-sm text-white/70">
+        <div className="flex items-center gap-6 sm:gap-8 text-sm text-black/70">
           <a
             href="#about"
-            className="hidden sm:inline hover:text-white transition-colors"
+            className="hidden sm:inline hover:text-black transition-colors"
           >
             About
           </a>
           <a
             href="#work"
-            className="hidden sm:inline hover:text-white transition-colors"
+            className="hidden sm:inline hover:text-black transition-colors"
           >
             Work
           </a>
           <a
             href="#experience"
-            className="hidden sm:inline hover:text-white transition-colors"
+            className="hidden sm:inline hover:text-black transition-colors"
           >
             Experience
           </a>
           <a
             href="#writing"
-            className="hidden sm:inline hover:text-white transition-colors"
+            className="hidden sm:inline hover:text-black transition-colors"
           >
             Writing
           </a>
           <a
             href="#contact"
-            className="hidden sm:inline hover:text-white transition-colors"
+            className="hidden sm:inline hover:text-black transition-colors"
           >
             Contact
           </a>
           <a
             href="/proof-of-work"
-            className="px-3 py-1.5 font-mono text-xs border border-white/20 rounded-full hover:border-white/50 hover:text-white transition-colors"
+            className="px-3 py-1.5 font-mono text-xs border border-black/20 rounded-full hover:border-black/50 hover:text-black transition-colors"
           >
             Proof of Work
           </a>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 // theatrics — a hiring engineer should get the full picture in ~3 minutes.
 export default function ProofOfWork() {
   return (
-    <main className="min-h-screen bg-black text-white px-6 sm:px-12 lg:px-20 py-20 sm:py-24">
+    <main className="pow-root min-h-screen bg-[#0a0a0a] text-white px-6 sm:px-12 lg:px-20 py-20 sm:py-24">
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
