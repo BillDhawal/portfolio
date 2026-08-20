@@ -93,8 +93,6 @@ export default function VideoShowcase() {
     [1, 1, 0, 0]
   );
 
-  const progressScaleX = scrollYProgress;
-
   return (
     <section
       id="top"
@@ -234,13 +232,6 @@ export default function VideoShowcase() {
           </div>
         </div>
 
-        {/* Scroll progress bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-black/10 z-10">
-          <motion.div
-            style={{ scaleX: progressScaleX, transformOrigin: "0% 50%" }}
-            className="h-full bg-black/40"
-          />
-        </div>
       </div>
     </section>
   );
