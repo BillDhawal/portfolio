@@ -30,82 +30,66 @@ export default function VideoShowcase() {
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.04, 1.12]);
 
-  // Five panes across 400vh. The name holds for about two scroll notches
-  // before lifting away, then each pane drifts up through the frame. Eyebrow
-  // labels move slower than their headlines; that speed difference between
-  // layers is what reads as parallax.
+  // Five panes across 400vh. The name holds, then eases away over a long
+  // multi-stop fade while pane 2 is already coming up underneath it — the
+  // overlap is deliberate, a cross-fade reads far smoother than a gap. Panes
+  // sit in different corners so they never collide during the handover.
+  // Eyebrow labels move slower than their headlines; that difference in layer
+  // speed is what reads as parallax.
   //
-  //   pane 1 (Name)     : visible 0    .. 0.08, lifts out .. 0.14
-  //   pane 2 (Approach) : fade in 0.15 .. 0.19, visible .. 0.36, fade .. 0.41
-  //   pane 3 (Range)    : fade in 0.44 .. 0.48, visible .. 0.62, fade .. 0.67
-  //   pane 4 (Craft)    : fade in 0.70 .. 0.74, visible .. 0.85, fade .. 0.89
-  //   pane 5 (Closing)  : fade in 0.91 .. 0.95, visible .. 1.0
+  //   pane 1 (Name)     : full 0    .. 0.05, eases out .. 0.17
+  //   pane 2 (Approach) : fade in 0.12 .. 0.18, visible .. 0.36, fade .. 0.42
+  //   pane 3 (Range)    : fade in 0.45 .. 0.50, visible .. 0.63, fade .. 0.68
+  //   pane 4 (Craft)    : fade in 0.71 .. 0.75, visible .. 0.86, fade .. 0.90
+  //   pane 5 (Closing)  : fade in 0.92 .. 0.96, visible .. 1.0
   const pane1Opacity = useTransform(
     scrollYProgress,
-    [0, 0.08, 0.14],
-    [1, 1, 0]
+    [0, 0.05, 0.09, 0.13, 0.17],
+    [1, 1, 0.75, 0.35, 0]
   );
-  const pane1Y = useTransform(scrollYProgress, [0, 0.14], ["0%", "-55%"]);
+  const pane1Y = useTransform(scrollYProgress, [0, 0.17], ["0%", "-50%"]);
   const pane1LabelY = useTransform(
     scrollYProgress,
-    [0, 0.14],
-    ["0%", "-24%"]
+    [0, 0.17],
+    ["0%", "-22%"]
   );
 
   const pane2Opacity = useTransform(
     scrollYProgress,
-    [0.15, 0.19, 0.36, 0.41],
+    [0.12, 0.18, 0.36, 0.42],
     [0, 1, 1, 0]
   );
-  const pane2Y = useTransform(scrollYProgress, [0.15, 0.41], ["45%", "-45%"]);
+  const pane2Y = useTransform(scrollYProgress, [0.12, 0.42], ["40%", "-40%"]);
   const pane2LabelY = useTransform(
     scrollYProgress,
-    [0.15, 0.41],
-    ["22%", "-22%"]
+    [0.12, 0.42],
+    ["20%", "-20%"]
   );
 
   const pane3Opacity = useTransform(
     scrollYProgress,
-    [0.44, 0.48, 0.62, 0.67],
+    [0.45, 0.5, 0.63, 0.68],
     [0, 1, 1, 0]
   );
-  const pane3Y = useTransform(scrollYProgress, [0.44, 0.67], ["35%", "-35%"]);
+  const pane3Y = useTransform(scrollYProgress, [0.45, 0.68], ["35%", "-35%"]);
 
   const pane4Opacity = useTransform(
     scrollYProgress,
-    [0.7, 0.74, 0.85, 0.89],
+    [0.71, 0.75, 0.86, 0.9],
     [0, 1, 1, 0]
   );
-  const pane4Y = useTransform(scrollYProgress, [0.7, 0.89], ["35%", "-35%"]);
+  const pane4Y = useTransform(scrollYProgress, [0.71, 0.9], ["35%", "-35%"]);
 
   const pane5Opacity = useTransform(
     scrollYProgress,
-    [0.91, 0.95, 1],
+    [0.92, 0.96, 1],
     [0, 1, 1]
   );
-  const pane5Y = useTransform(scrollYProgress, [0.91, 1], ["30%", "-5%"]);
-
-  // Opacity 0 still leaves the node in the blend layer. Hard-hide each pane
-  // once it has finished fading so no earlier headline can ghost through.
-  const pane1Visibility = useTransform(scrollYProgress, (v) =>
-    v > 0.14 ? "hidden" : "visible"
-  );
-  const pane2Visibility = useTransform(scrollYProgress, (v) =>
-    v < 0.15 || v > 0.41 ? "hidden" : "visible"
-  );
-  const pane3Visibility = useTransform(scrollYProgress, (v) =>
-    v < 0.44 || v > 0.67 ? "hidden" : "visible"
-  );
-  const pane4Visibility = useTransform(scrollYProgress, (v) =>
-    v < 0.7 || v > 0.89 ? "hidden" : "visible"
-  );
-  const pane5Visibility = useTransform(scrollYProgress, (v) =>
-    v < 0.91 ? "hidden" : "visible"
-  );
+  const pane5Y = useTransform(scrollYProgress, [0.92, 1], ["30%", "-5%"]);
 
   const scrollHintOpacity = useTransform(
     scrollYProgress,
-    [0, 0.06, 0.13, 1],
+    [0, 0.05, 0.14, 1],
     [1, 1, 0, 0]
   );
 
@@ -139,7 +123,7 @@ export default function VideoShowcase() {
         >
           {/* Pane 1 — top-left brand */}
           <motion.div
-            style={{ opacity: pane1Opacity, y: pane1Y, visibility: pane1Visibility }}
+            style={{ opacity: pane1Opacity, y: pane1Y }}
             className="absolute top-1/2 left-8 sm:left-16 -translate-y-1/2 max-w-3xl text-white"
           >
             <motion.p
@@ -161,7 +145,7 @@ export default function VideoShowcase() {
 
           {/* Pane 2 — bottom-right mission */}
           <motion.div
-            style={{ opacity: pane2Opacity, y: pane2Y, visibility: pane2Visibility }}
+            style={{ opacity: pane2Opacity, y: pane2Y }}
             className="absolute top-1/2 -translate-y-1/2 right-8 sm:right-16 w-full sm:w-[48%] max-w-2xl text-right text-white"
           >
             <motion.p
@@ -183,7 +167,7 @@ export default function VideoShowcase() {
 
           {/* Pane 3 — top-right range */}
           <motion.div
-            style={{ opacity: pane3Opacity, y: pane3Y, visibility: pane3Visibility }}
+            style={{ opacity: pane3Opacity, y: pane3Y }}
             className="absolute top-32 right-8 sm:right-16 max-w-3xl text-right text-white"
           >
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
@@ -198,7 +182,7 @@ export default function VideoShowcase() {
 
           {/* Pane 4 — bottom-left craft */}
           <motion.div
-            style={{ opacity: pane4Opacity, y: pane4Y, visibility: pane4Visibility }}
+            style={{ opacity: pane4Opacity, y: pane4Y }}
             className="absolute bottom-24 left-8 sm:left-16 max-w-3xl text-left text-white"
           >
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
@@ -213,7 +197,7 @@ export default function VideoShowcase() {
 
           {/* Pane 5 — centered closing line */}
           <motion.div
-            style={{ opacity: pane5Opacity, y: pane5Y, visibility: pane5Visibility }}
+            style={{ opacity: pane5Opacity, y: pane5Y }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-3xl text-center text-white px-6"
           >
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-8">
