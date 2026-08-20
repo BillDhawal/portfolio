@@ -121,23 +121,23 @@ export default function VideoShowcase() {
               <span className="italic font-light">Gajwe</span>
             </h1>
             <p className="mt-10 text-lg max-w-md">
-              AI Engineer · Machine Learning Specialist. Building intelligent
-              systems — one algorithm at a time.
+              AI Engineer. Building intelligent systems — one algorithm at a
+              time.
             </p>
           </motion.div>
 
           {/* Pane 2 — bottom-right mission */}
           <motion.div
             style={{ opacity: pane2Opacity, y: pane2Y }}
-            className="absolute bottom-24 right-8 sm:right-16 max-w-3xl text-right text-white"
+            className="absolute bottom-24 right-8 sm:right-16 max-w-5xl text-right text-white"
           >
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
-              AI Engineer
+              Approach
             </p>
-            <h2 className="text-6xl sm:text-8xl md:text-9xl font-semibold tracking-tight leading-[0.95]">
-              Building
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[1.05]">
+              The AI is the easy part.
               <br />
-              <span className="italic font-light">intelligent systems.</span>
+              <span className="italic font-light">The engineering isn&apos;t.</span>
             </h2>
           </motion.div>
 
