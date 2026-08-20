@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import Image from "next/image";
 import { useRef } from "react";
 import GitHubHeatmap from "@/components/GitHubHeatmap";
 
@@ -106,14 +105,15 @@ export default function About() {
             variants={reveal}
             className="md:col-span-4 relative"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-black/10">
-              <Image
-                src="/18635541.jpeg"
-                alt="Dhawal Gajwe"
-                fill
-                sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-cover grayscale hover:grayscale-0 transition-[filter] duration-700"
-                priority={false}
+            <div className="relative aspect-square overflow-hidden rounded-2xl border border-black/10">
+              <video
+                src="/profile.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Dhawal Gajwe"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
             <div className="mt-4 flex justify-between font-mono text-xs text-black/50 tracking-widest">
