@@ -44,3 +44,6 @@ next-env.d.ts
 POF_Assets/
 /01.mp4
 /02_video.mp4
+
+# raw generated clips dropped in the repo root (compressed copies live in public/)
+/hf_*.mp4
