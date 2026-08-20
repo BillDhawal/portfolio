@@ -15,11 +15,7 @@ const reveal: Variants = {
   }),
 };
 
-const lines = [
-  "I build intelligent",
-  "systems that make",
-  "a difference.",
-];
+const lines = ["Building with AI", "made me more creative."];
 
 type StackGroup = { label: string; items: string[] };
 
@@ -137,13 +133,13 @@ export default function About() {
                   {i === 0 ? (
                     <span className="relative inline-block">
                       <video
-                        src="/profile.mp4"
+                        src="/text-bg.mp4"
                         autoPlay
                         muted
                         loop
                         playsInline
                         aria-hidden
-                        className="absolute inset-0 h-full w-full object-cover object-[50%_12%] saturate-150"
+                        className="absolute inset-0 h-full w-full object-cover"
                       />
                       {/* screen blend: white stays white, black glyphs
                           become windows into the video behind */}

@@ -141,28 +141,6 @@ export default function VideoShowcase() {
             </p>
           </motion.div>
 
-          {/* Pane 2 — bottom-right mission */}
-          <motion.div
-            style={{ opacity: pane2Opacity, y: pane2Y }}
-            className="absolute top-1/2 -translate-y-1/2 right-8 sm:right-16 w-full sm:w-[48%] max-w-2xl text-right text-white"
-          >
-            <motion.p
-              style={{ y: pane2LabelY }}
-              className="font-mono text-xs tracking-[0.3em] uppercase mb-6"
-            >
-              Approach
-            </motion.p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
-              The AI is
-              <br />
-              the easy part.
-              <br />
-              <span className="italic font-light">
-                The engineering isn&apos;t.
-              </span>
-            </h2>
-          </motion.div>
-
           {/* Pane 3 — top-right range */}
           <motion.div
             style={{ opacity: pane3Opacity, y: pane3Y }}
@@ -186,10 +164,12 @@ export default function VideoShowcase() {
             <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
               Craft
             </p>
-            <h2 className="text-6xl sm:text-8xl md:text-9xl font-semibold tracking-tight leading-[0.95]">
-              Models that
+            <h2 className="text-5xl sm:text-7xl md:text-8xl font-semibold tracking-tight leading-[1.0]">
+              With AI,
               <br />
-              <span className="italic font-light">make a difference.</span>
+              <span className="italic font-light">
+                I build what I imagine.
+              </span>
             </h2>
           </motion.div>
 
@@ -212,6 +192,25 @@ export default function VideoShowcase() {
             </p>
           </motion.div>
         </div>
+
+        {/* Pane 2 — outside the blend layer: the video is a light close-up
+            during its window, so solid ink beats difference blending here */}
+        <motion.div
+          style={{ opacity: pane2Opacity, y: pane2Y }}
+          className="absolute top-1/2 -translate-y-1/2 right-8 sm:right-16 w-full sm:w-[48%] max-w-2xl text-right text-black z-10 px-8 sm:px-0"
+        >
+          <motion.p
+            style={{ y: pane2LabelY }}
+            className="font-mono text-xs tracking-[0.3em] uppercase mb-6 text-black/60"
+          >
+            Approach
+          </motion.p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
+            Ideas used to wait.
+            <br />
+            <span className="italic font-light">Now they ship.</span>
+          </h2>
+        </motion.div>
 
         {/* HUD — also blended for adaptive contrast */}
         <div
