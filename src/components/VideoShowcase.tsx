@@ -97,8 +97,7 @@ export default function VideoShowcase() {
             playsInline
             preload="auto"
           >
-            <source src="/video.mov" type="video/quicktime" />
-            <source src="/video.mov" type="video/mp4" />
+            <source src="/hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
 
