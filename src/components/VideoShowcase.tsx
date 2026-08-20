@@ -30,74 +30,60 @@ export default function VideoShowcase() {
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.04, 1.12]);
 
-  // Five panes across 400vh. The name holds, then eases away over a long
-  // multi-stop fade while pane 2 is already coming up underneath it — the
-  // overlap is deliberate, a cross-fade reads far smoother than a gap. Panes
-  // sit in different corners so they never collide during the handover.
-  // Eyebrow labels move slower than their headlines; that difference in layer
-  // speed is what reads as parallax.
+  // Two panes across 300vh: the name holds then eases away, and pane 2
+  // cross-fades in underneath, holds through the middle of the scrub, and
+  // clears before the video dives into the wireframe for the finish.
   //
-  //   pane 1 (Name)     : full 0    .. 0.05, eases out .. 0.17
-  //   pane 2 (Approach) : fade in 0.12 .. 0.18, visible .. 0.36, fade .. 0.42
-  //   pane 3 (Range)    : fade in 0.45 .. 0.50, visible .. 0.63, fade .. 0.68
-  //   pane 4 (Craft)    : fade in 0.71 .. 0.75, visible .. 0.86, fade .. 0.90
-  //   pane 5 (Closing)  : fade in 0.92 .. 0.96, visible .. 1.0
+  // Opacity ramps are computed in function form rather than framer's
+  // multi-stop array form: with a section target, array transforms of 3+
+  // stops were observed tracking *document* scroll instead of the section
+  // (2-stop transforms and useMotionValueEvent tracked the section
+  // correctly). Function form reads the raw section progress directly.
+  const ramp =
+    (stops: number[], outs: number[]) =>
+    (v: number): number => {
+      if (v <= stops[0]) return outs[0];
+      for (let k = 1; k < stops.length; k++) {
+        if (v <= stops[k]) {
+          const t = (v - stops[k - 1]) / (stops[k] - stops[k - 1]);
+          return outs[k - 1] + t * (outs[k] - outs[k - 1]);
+        }
+      }
+      return outs[outs.length - 1];
+    };
+
   const pane1Opacity = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.09, 0.13, 0.17],
-    [1, 1, 0.75, 0.35, 0]
+    ramp([0, 0.25, 0.32, 0.39, 0.45], [1, 1, 0.75, 0.35, 0])
   );
-  const pane1Y = useTransform(scrollYProgress, [0, 0.17], ["0%", "-50%"]);
+  const pane1Y = useTransform(scrollYProgress, [0, 0.45], ["0%", "-50%"]);
   const pane1LabelY = useTransform(
     scrollYProgress,
-    [0, 0.17],
+    [0, 0.45],
     ["0%", "-22%"]
   );
 
   const pane2Opacity = useTransform(
     scrollYProgress,
-    [0.12, 0.18, 0.36, 0.42],
-    [0, 1, 1, 0]
+    ramp([0.4, 0.5, 0.85, 0.95], [0, 1, 1, 0])
   );
-  const pane2Y = useTransform(scrollYProgress, [0.12, 0.42], ["40%", "-40%"]);
+  const pane2Y = useTransform(scrollYProgress, [0.4, 0.95], ["35%", "-35%"]);
   const pane2LabelY = useTransform(
     scrollYProgress,
-    [0.12, 0.42],
-    ["20%", "-20%"]
+    [0.4, 0.95],
+    ["18%", "-18%"]
   );
-
-  const pane3Opacity = useTransform(
-    scrollYProgress,
-    [0.45, 0.5, 0.63, 0.68],
-    [0, 1, 1, 0]
-  );
-  const pane3Y = useTransform(scrollYProgress, [0.45, 0.68], ["35%", "-35%"]);
-
-  const pane4Opacity = useTransform(
-    scrollYProgress,
-    [0.71, 0.75, 0.86, 0.9],
-    [0, 1, 1, 0]
-  );
-  const pane4Y = useTransform(scrollYProgress, [0.71, 0.9], ["35%", "-35%"]);
-
-  const pane5Opacity = useTransform(
-    scrollYProgress,
-    [0.92, 0.96, 1],
-    [0, 1, 1]
-  );
-  const pane5Y = useTransform(scrollYProgress, [0.92, 1], ["30%", "-5%"]);
 
   const scrollHintOpacity = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.14, 1],
-    [1, 1, 0, 0]
+    ramp([0, 0.15, 0.3, 1], [1, 1, 0, 0])
   );
 
   return (
     <section
       id="top"
       ref={ref}
-      className="relative h-[400vh] bg-white"
+      className="relative h-[300vh] bg-white"
       aria-label="Hero showcase"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
@@ -141,56 +127,6 @@ export default function VideoShowcase() {
             </p>
           </motion.div>
 
-          {/* Pane 3 — top-right range */}
-          <motion.div
-            style={{ opacity: pane3Opacity, y: pane3Y }}
-            className="absolute top-32 right-8 sm:right-16 max-w-3xl text-right text-white"
-          >
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
-              Range
-            </p>
-            <h2 className="text-6xl sm:text-8xl md:text-9xl font-semibold tracking-tight leading-[0.95]">
-              From research,
-              <br />
-              <span className="italic font-light">to production.</span>
-            </h2>
-          </motion.div>
-
-          {/* Pane 4 — bottom-left craft */}
-          <motion.div
-            style={{ opacity: pane4Opacity, y: pane4Y }}
-            className="absolute bottom-24 left-8 sm:left-16 max-w-3xl text-left text-white"
-          >
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-6">
-              Craft
-            </p>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl font-semibold tracking-tight leading-[1.0]">
-              With AI,
-              <br />
-              <span className="italic font-light">
-                I build what I imagine.
-              </span>
-            </h2>
-          </motion.div>
-
-          {/* Pane 5 — centered closing line */}
-          <motion.div
-            style={{ opacity: pane5Opacity, y: pane5Y }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-3xl text-center text-white px-6"
-          >
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-8">
-              Closing
-            </p>
-            <p className="text-3xl sm:text-5xl font-light leading-snug">
-              Every detail considered.
-              <br />
-              Every transition deliberate.
-              <br />
-              <span className="italic">
-                Every frame earning its place on screen.
-              </span>
-            </p>
-          </motion.div>
         </div>
 
         {/* Pane 2 — outside the blend layer: the video is a light close-up

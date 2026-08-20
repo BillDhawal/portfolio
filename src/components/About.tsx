@@ -169,8 +169,8 @@ export default function About() {
               I&apos;m an AI Engineer with an MS in Information Science
               (Machine Learning) from the University of Arizona. I work across
               transformers, generative AI, and context-aware systems —
-              shipping production ML in Python and TypeScript and obsessing
-              over the details that turn a model into a product.
+              shipping production ML in Python and obsessing over the
+              architecture decisions that turn code into a product.
             </motion.p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 max-w-3xl">
