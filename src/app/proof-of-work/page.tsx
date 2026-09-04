@@ -33,9 +33,9 @@ export default function ProofOfWork() {
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
-        <header className="relative mb-28 pb-24 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <header className="relative mb-20 pb-[17rem] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div
-            className="absolute left-0 bottom-0 translate-y-[52%] text-[9rem] sm:text-[13rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
+            className="absolute left-0 bottom-0 text-[10rem] sm:text-[15rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             thewallcodes
@@ -94,9 +94,9 @@ export default function ProofOfWork() {
         </header>
 
         {/* Projects */}
-        <section aria-labelledby="projects-heading" className="relative mb-16 pb-36 overflow-hidden">
+        <section aria-labelledby="projects-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
           <div
-            className="absolute right-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
+            className="absolute right-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             PROJECTS
@@ -235,9 +235,9 @@ export default function ProofOfWork() {
         </section>
 
         {/* Experience */}
-        <section aria-labelledby="experience-heading" className="relative mb-16 pb-36 overflow-hidden">
+        <section aria-labelledby="experience-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
           <div
-            className="absolute left-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
+            className="absolute left-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             EXPERIENCE
@@ -284,9 +284,9 @@ export default function ProofOfWork() {
         </section>
 
         {/* Videos */}
-        <section aria-labelledby="videos-heading" className="relative mb-16 pb-36 overflow-hidden">
+        <section aria-labelledby="videos-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
           <div
-            className="absolute right-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
+            className="absolute right-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             VIDEOS
@@ -311,9 +311,9 @@ export default function ProofOfWork() {
         </section>
 
         {/* Writing */}
-        <section aria-labelledby="writing-heading" className="relative mb-16 pb-36 overflow-hidden">
+        <section aria-labelledby="writing-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
           <div
-            className="absolute left-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
+            className="absolute left-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             WRITING
