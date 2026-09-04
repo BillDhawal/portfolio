@@ -69,8 +69,10 @@ export default function Navbar() {
               aria-hidden
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <span className="absolute inset-0 bg-black/30" aria-hidden />
-            <span className="relative">Proof of Work</span>
+            <span className="absolute inset-0 bg-black/10" aria-hidden />
+            <span className="relative font-semibold tracking-wide [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
+              Proof of Work
+            </span>
           </a>
         </div>
       </div>
