@@ -33,7 +33,8 @@ export default function ProofOfWork() {
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
-        <header className="mb-28">
+        <header className="mb-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-8">
           <Link
             href="/"
             className="font-mono text-xs text-black/40 hover:text-black transition-colors"
@@ -67,10 +68,32 @@ export default function ProofOfWork() {
               </a>
             ))}
           </div>
+          </div>
+
+          {/* head loop fills the header's empty right column */}
+          <div className="lg:col-span-4">
+            <div className="relative aspect-square overflow-hidden rounded-2xl border border-black/10">
+              <video
+                src="/profile.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </div>
         </header>
 
         {/* Projects */}
-        <section aria-labelledby="projects-heading" className="mb-32">
+        <section aria-labelledby="projects-heading" className="relative mb-32 overflow-hidden">
+          <div
+            className="absolute right-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            aria-hidden
+          >
+            PROJECTS
+          </div>
           <h2
             id="projects-heading"
             className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
@@ -107,13 +130,13 @@ export default function ProofOfWork() {
                   >
                     <dl className="space-y-5 text-black/80 leading-relaxed">
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
+                        <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           Problem
                         </dt>
                         <dd>{project.problem}</dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-2">
+                        <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           What I built
                         </dt>
                         <dd>
@@ -130,20 +153,20 @@ export default function ProofOfWork() {
                         </dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
+                        <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           My role
                         </dt>
                         <dd>{project.role}</dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
+                        <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           Outcome
                         </dt>
                         <dd>{project.outcome}</dd>
                       </div>
                       {project.credit && (
                         <div>
-                          <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
+                          <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                             Credit
                           </dt>
                           <dd className="text-black/60">{project.credit}</dd>
@@ -205,7 +228,13 @@ export default function ProofOfWork() {
         </section>
 
         {/* Experience */}
-        <section aria-labelledby="experience-heading" className="mb-32">
+        <section aria-labelledby="experience-heading" className="relative mb-32 overflow-hidden">
+          <div
+            className="absolute left-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            aria-hidden
+          >
+            EXPERIENCE
+          </div>
           <h2
             id="experience-heading"
             className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
@@ -248,7 +277,13 @@ export default function ProofOfWork() {
         </section>
 
         {/* Videos */}
-        <section aria-labelledby="videos-heading" className="mb-32">
+        <section aria-labelledby="videos-heading" className="relative mb-32 overflow-hidden">
+          <div
+            className="absolute right-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            aria-hidden
+          >
+            VIDEOS
+          </div>
           <h2
             id="videos-heading"
             className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
@@ -269,7 +304,13 @@ export default function ProofOfWork() {
         </section>
 
         {/* Writing */}
-        <section aria-labelledby="writing-heading" className="mb-32">
+        <section aria-labelledby="writing-heading" className="relative mb-32 overflow-hidden">
+          <div
+            className="absolute left-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            aria-hidden
+          >
+            WRITING
+          </div>
           <h2
             id="writing-heading"
             className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
