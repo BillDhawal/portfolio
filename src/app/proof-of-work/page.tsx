@@ -33,15 +33,15 @@ export default function ProofOfWork() {
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
-        <header className="relative mb-20 pb-[17rem] overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <header className="relative mb-28 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div
-            className="absolute left-0 bottom-0 text-[10rem] sm:text-[15rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
+            className="absolute -left-10 top-24 text-[13rem] sm:text-[19rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             thewallcodes
           </div>
 
-          <div className="lg:col-span-8">
+          <div className="relative lg:col-span-8">
           <Link
             href="/"
             className="font-mono text-xs text-black/40 hover:text-black transition-colors"
@@ -78,7 +78,7 @@ export default function ProofOfWork() {
           </div>
 
           {/* head loop fills the header's empty right column */}
-          <div className="lg:col-span-4">
+          <div className="relative lg:col-span-4">
             <div className="relative aspect-square overflow-hidden rounded-2xl border border-black/10">
               <video
                 src="/profile.mp4"
@@ -94,21 +94,21 @@ export default function ProofOfWork() {
         </header>
 
         {/* Projects */}
-        <section aria-labelledby="projects-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
+        <section aria-labelledby="projects-heading" className="relative mb-32 overflow-hidden">
           <div
-            className="absolute right-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
+            className="absolute right-0 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             PROJECTS
           </div>
           <h2
             id="projects-heading"
-            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
+            className="relative font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Projects
           </h2>
 
-          <div className="space-y-24">
+          <div className="space-y-24 relative">
             {projects.map((project, i) => (
               <Reveal key={project.title}>
                 <article className="border-t border-black/10 pt-12">
@@ -235,20 +235,20 @@ export default function ProofOfWork() {
         </section>
 
         {/* Experience */}
-        <section aria-labelledby="experience-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
+        <section aria-labelledby="experience-heading" className="relative mb-32 overflow-hidden">
           <div
-            className="absolute left-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
+            className="absolute -left-10 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             EXPERIENCE
           </div>
           <h2
             id="experience-heading"
-            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
+            className="relative font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Experience
           </h2>
-          <div className="space-y-12">
+          <div className="space-y-12 relative">
             {experience.map((role) => (
               <Reveal key={role.company}>
                 <article className="border-t border-black/10 pt-8">
@@ -284,20 +284,20 @@ export default function ProofOfWork() {
         </section>
 
         {/* Videos */}
-        <section aria-labelledby="videos-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
+        <section aria-labelledby="videos-heading" className="relative mb-32 overflow-hidden">
           <div
-            className="absolute right-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
+            className="absolute right-0 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             VIDEOS
           </div>
           <h2
             id="videos-heading"
-            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
+            className="relative font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Videos — watch the work
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 relative">
             {videos.map((video, i) => (
               <Reveal key={video.id} delay={(i % 3) * 0.08}>
                 <YouTubeEmbed videoId={video.id} title={video.title} />
@@ -311,21 +311,21 @@ export default function ProofOfWork() {
         </section>
 
         {/* Writing */}
-        <section aria-labelledby="writing-heading" className="relative mb-16 pb-[17rem] overflow-hidden">
+        <section aria-labelledby="writing-heading" className="relative mb-32 overflow-hidden">
           <div
-            className="absolute left-0 bottom-0 text-[11rem] sm:text-[16rem] font-bold text-black/[0.045] leading-[0.75] select-none pointer-events-none whitespace-nowrap"
+            className="absolute -left-10 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             WRITING
           </div>
           <h2
             id="writing-heading"
-            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
+            className="relative font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Writing
           </h2>
           <Reveal>
-          <ul className="border-b border-black/10 max-w-5xl">
+          <ul className="border-b border-black/10 max-w-5xl relative">
             {articles.map((article) => (
               <li key={article.href} className="border-t border-black/10">
                 <a
