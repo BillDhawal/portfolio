@@ -67,7 +67,7 @@ export default function Navbar() {
               loop
               playsInline
               aria-hidden
-              className="absolute inset-0 h-full w-full object-cover scale-150"
+              className="absolute inset-0 h-full w-full object-cover scale-250"
             />
             <span className="absolute inset-0 bg-black/10" aria-hidden />
             <span className="relative font-semibold tracking-wide [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
