@@ -29,21 +29,21 @@ export const metadata: Metadata = {
 // theatrics — a hiring engineer should get the full picture in ~3 minutes.
 export default function ProofOfWork() {
   return (
-    <main className="pow-root min-h-screen bg-[#0a0a0a] text-white px-6 sm:px-12 lg:px-20 py-20 sm:py-24">
+    <main className="min-h-screen bg-white text-black px-6 sm:px-12 lg:px-20 py-20 sm:py-24">
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
         <header className="mb-28">
           <Link
             href="/"
-            className="font-mono text-xs text-white/40 hover:text-white transition-colors"
+            className="font-mono text-xs text-black/40 hover:text-black transition-colors"
           >
             ← thewallcodes.com
           </Link>
           <h1 className="mt-8 text-4xl sm:text-6xl font-semibold tracking-tight">
             Dhawal Gajwe
           </h1>
-          <p className="mt-4 text-lg text-white/70 max-w-2xl leading-relaxed">
+          <p className="mt-4 text-lg text-black/70 max-w-2xl leading-relaxed">
             AI/ML engineer — 6+ years shipping production systems, from endpoint
             security at McAfee to LLM platforms and two live iOS apps. This page
             is the proof: what I built, why, and what came of it.
@@ -61,7 +61,7 @@ export default function ProofOfWork() {
                 rel={
                   l.href.startsWith("http") ? "noopener noreferrer" : undefined
                 }
-                className="px-3 py-1.5 text-xs font-mono border border-white/15 rounded-full text-white/70 hover:text-white hover:border-white/40 transition-colors"
+                className="px-3 py-1.5 text-xs font-mono border border-black/15 rounded-full text-black/70 hover:text-black hover:border-black/40 transition-colors"
               >
                 {l.label} ↗
               </a>
@@ -73,7 +73,7 @@ export default function ProofOfWork() {
         <section aria-labelledby="projects-heading" className="mb-32">
           <h2
             id="projects-heading"
-            className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-10"
+            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Projects
           </h2>
@@ -81,19 +81,19 @@ export default function ProofOfWork() {
           <div className="space-y-24">
             {projects.map((project, i) => (
               <Reveal key={project.title}>
-                <article className="border-t border-white/10 pt-12">
+                <article className="border-t border-black/10 pt-12">
                 <div className="flex flex-wrap items-baseline justify-between gap-3 mb-1">
                   <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                    <span className="font-mono text-sm text-white/40 mr-3">
+                    <span className="font-mono text-sm text-black/40 mr-3">
                       0{i + 1}
                     </span>
                     {project.title}
                   </h3>
-                  <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/50">
+                  <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/50">
                     {project.status}
                   </span>
                 </div>
-                <p className="font-mono text-xs text-white/40 mb-6">
+                <p className="font-mono text-xs text-black/40 mb-6">
                   {project.stack} · {project.year}
                 </p>
 
@@ -105,15 +105,15 @@ export default function ProofOfWork() {
                         : "lg:col-span-6"
                     }
                   >
-                    <dl className="space-y-5 text-white/80 leading-relaxed">
+                    <dl className="space-y-5 text-black/80 leading-relaxed">
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-1">
+                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
                           Problem
                         </dt>
                         <dd>{project.problem}</dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-2">
+                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-2">
                           What I built
                         </dt>
                         <dd>
@@ -121,7 +121,7 @@ export default function ProofOfWork() {
                             {project.built.map((item, j) => (
                               <li
                                 key={j}
-                                className="pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-white/30"
+                                className="pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
                               >
                                 {item}
                               </li>
@@ -130,23 +130,23 @@ export default function ProofOfWork() {
                         </dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-1">
+                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
                           My role
                         </dt>
                         <dd>{project.role}</dd>
                       </div>
                       <div>
-                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-1">
+                        <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
                           Outcome
                         </dt>
                         <dd>{project.outcome}</dd>
                       </div>
                       {project.credit && (
                         <div>
-                          <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40 mb-1">
+                          <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40 mb-1">
                             Credit
                           </dt>
-                          <dd className="text-white/60">{project.credit}</dd>
+                          <dd className="text-black/60">{project.credit}</dd>
                         </div>
                       )}
                     </dl>
@@ -158,7 +158,7 @@ export default function ProofOfWork() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1.5 text-xs font-mono border border-white/15 rounded-full text-white/70 hover:text-white hover:border-white/40 transition-colors"
+                          className="px-3 py-1.5 text-xs font-mono border border-black/15 rounded-full text-black/70 hover:text-black hover:border-black/40 transition-colors"
                         >
                           {link.label} ↗
                         </a>
@@ -208,26 +208,26 @@ export default function ProofOfWork() {
         <section aria-labelledby="experience-heading" className="mb-32">
           <h2
             id="experience-heading"
-            className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-10"
+            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Experience
           </h2>
           <div className="space-y-12">
             {experience.map((role) => (
               <Reveal key={role.company}>
-                <article className="border-t border-white/10 pt-8">
+                <article className="border-t border-black/10 pt-8">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
                     <LogoChip logo={role.logo} name={role.company} />
                     <h3 className="text-xl sm:text-2xl font-semibold">
                       {role.company}{" "}
-                      <span className="font-normal text-white/60">
+                      <span className="font-normal text-black/60">
                         — {role.title}
                       </span>
                     </h3>
                     {role.client && <ClientBadge client={role.client} />}
                   </div>
-                  <span className="font-mono text-xs text-white/40 tracking-widest">
+                  <span className="font-mono text-xs text-black/40 tracking-widest">
                     {role.period}
                   </span>
                 </div>
@@ -235,7 +235,7 @@ export default function ProofOfWork() {
                   {role.bullets.map((bullet, j) => (
                     <li
                       key={j}
-                      className="text-white/75 leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-white/30"
+                      className="text-black/75 leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
                     >
                       {bullet}
                     </li>
@@ -251,7 +251,7 @@ export default function ProofOfWork() {
         <section aria-labelledby="videos-heading" className="mb-32">
           <h2
             id="videos-heading"
-            className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-10"
+            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Videos — watch the work
           </h2>
@@ -261,7 +261,7 @@ export default function ProofOfWork() {
                 <YouTubeEmbed videoId={video.id} title={video.title} />
                 <h3 className="mt-3 font-medium">{video.title}</h3>
                 {video.note && (
-                  <p className="mt-1 text-sm text-white/50">{video.note}</p>
+                  <p className="mt-1 text-sm text-black/50">{video.note}</p>
                 )}
               </Reveal>
             ))}
@@ -272,27 +272,27 @@ export default function ProofOfWork() {
         <section aria-labelledby="writing-heading" className="mb-32">
           <h2
             id="writing-heading"
-            className="font-mono text-xs tracking-[0.3em] text-white/50 uppercase mb-10"
+            className="font-mono text-xs tracking-[0.3em] text-black/50 uppercase mb-10"
           >
             Writing
           </h2>
           <Reveal>
-          <ul className="border-b border-white/10 max-w-5xl">
+          <ul className="border-b border-black/10 max-w-5xl">
             {articles.map((article) => (
-              <li key={article.href} className="border-t border-white/10">
+              <li key={article.href} className="border-t border-black/10">
                 <a
                   href={article.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-baseline justify-between gap-6 py-4 hover:bg-white/[0.02] transition-colors"
+                  className="group flex items-baseline justify-between gap-6 py-4 hover:bg-black/[0.02] transition-colors"
                 >
                   <span className="group-hover:translate-x-1 transition-transform">
                     {article.title}
-                    <span className="inline-block ml-2 text-white/30 group-hover:text-white/70 transition-colors">
+                    <span className="inline-block ml-2 text-black/30 group-hover:text-black/70 transition-colors">
                       ↗
                     </span>
                   </span>
-                  <span className="font-mono text-xs text-white/40 tracking-widest shrink-0">
+                  <span className="font-mono text-xs text-black/40 tracking-widest shrink-0">
                     {article.source.toUpperCase()}
                   </span>
                 </a>
@@ -303,17 +303,17 @@ export default function ProofOfWork() {
         </section>
 
         {/* Footer CTA */}
-        <footer className="border-t border-white/10 pt-10 pb-8">
-          <p className="text-white/70">
+        <footer className="border-t border-black/10 pt-10 pb-8">
+          <p className="text-black/70">
             Happy to walk through any of this live —{" "}
             <a
               href={`mailto:${contact.email}`}
-              className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors"
+              className="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black transition-colors"
             >
               {contact.email}
             </a>
           </p>
-          <p className="mt-6 font-mono text-xs text-white/30 tracking-widest">
+          <p className="mt-6 font-mono text-xs text-black/30 tracking-widest">
             © 2026 DHAWAL GAJWE
           </p>
         </footer>

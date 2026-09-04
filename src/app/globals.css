@@ -13,20 +13,6 @@
   --muted: rgba(0, 0, 0, 0.45);
 }
 
-/* /proof-of-work stays dark; it is a dense reading page, not a showcase. */
-.pow-root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --card-border: rgba(255, 255, 255, 0.1);
-  --card-bg: rgba(255, 255, 255, 0.02);
-  --muted: rgba(255, 255, 255, 0.3);
-}
-
-/* keep overscroll from flashing white behind the dark page */
-body:has(.pow-root) {
-  background: #0a0a0a;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,11 +35,6 @@ body {
 ::selection {
   background: #0a0a0a;
   color: #fff;
-}
-
-.pow-root ::selection {
-  background: #fff;
-  color: #000;
 }
 
 /* hide scrollbars on hover-scroll galleries (still scrollable) */

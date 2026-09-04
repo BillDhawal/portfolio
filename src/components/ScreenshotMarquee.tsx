@@ -47,13 +47,13 @@ export default function ScreenshotMarquee({
       </div>
       {/* edge fades so shots glide in and out instead of popping */}
       <div
-        className={`pointer-events-none absolute inset-y-0 left-0 rounded-l-xl bg-gradient-to-r from-black/70 to-transparent ${
+        className={`pointer-events-none absolute inset-y-0 left-0 rounded-l-xl bg-gradient-to-r from-white to-transparent ${
           layout === "phone" ? "w-6" : "w-12"
         }`}
         aria-hidden
       />
       <div
-        className={`pointer-events-none absolute inset-y-0 right-0 rounded-r-xl bg-gradient-to-l from-black/70 to-transparent ${
+        className={`pointer-events-none absolute inset-y-0 right-0 rounded-r-xl bg-gradient-to-l from-white to-transparent ${
           layout === "phone" ? "w-6" : "w-12"
         }`}
         aria-hidden
