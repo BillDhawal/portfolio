@@ -33,7 +33,14 @@ export default function ProofOfWork() {
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
-        <header className="mb-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <header className="relative mb-28 pb-24 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div
+            className="absolute left-0 bottom-0 translate-y-[52%] text-[9rem] sm:text-[13rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
+            aria-hidden
+          >
+            thewallcodes
+          </div>
+
           <div className="lg:col-span-8">
           <Link
             href="/"
