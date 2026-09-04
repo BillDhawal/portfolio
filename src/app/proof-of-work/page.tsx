@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og.png"],
   },
+  alternates: { canonical: "/proof-of-work" },
 };
 
 // Dense, reviewer-facing page. Deliberately plain: no music, no scroll
