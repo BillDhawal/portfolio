@@ -87,9 +87,9 @@ export default function ProofOfWork() {
         </header>
 
         {/* Projects */}
-        <section aria-labelledby="projects-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="projects-heading" className="relative mb-16 pb-36 overflow-hidden">
           <div
-            className="absolute right-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            className="absolute right-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             PROJECTS
@@ -228,9 +228,9 @@ export default function ProofOfWork() {
         </section>
 
         {/* Experience */}
-        <section aria-labelledby="experience-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="experience-heading" className="relative mb-16 pb-36 overflow-hidden">
           <div
-            className="absolute left-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            className="absolute left-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             EXPERIENCE
@@ -277,9 +277,9 @@ export default function ProofOfWork() {
         </section>
 
         {/* Videos */}
-        <section aria-labelledby="videos-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="videos-heading" className="relative mb-16 pb-36 overflow-hidden">
           <div
-            className="absolute right-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            className="absolute right-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             VIDEOS
@@ -304,9 +304,9 @@ export default function ProofOfWork() {
         </section>
 
         {/* Writing */}
-        <section aria-labelledby="writing-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="writing-heading" className="relative mb-16 pb-36 overflow-hidden">
           <div
-            className="absolute left-0 -top-16 text-[12rem] sm:text-[18rem] font-bold text-black/[0.03] select-none pointer-events-none whitespace-nowrap"
+            className="absolute left-0 bottom-0 translate-y-[52%] text-[11rem] sm:text-[16rem] font-bold text-black/[0.04] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
           >
             WRITING
