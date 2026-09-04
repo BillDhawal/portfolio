@@ -57,9 +57,20 @@ export default function Navbar() {
           </a>
           <a
             href="/proof-of-work"
-            className="px-3 py-1.5 font-mono text-xs border border-black/20 rounded-full hover:border-black/50 hover:text-black transition-colors"
+            className="relative overflow-hidden px-3 py-1.5 font-mono text-xs rounded-full text-white transition-transform duration-300 hover:scale-105"
           >
-            Proof of Work
+            {/* swirl clip fills the pill — same family as the About headline */}
+            <video
+              src="/text-bg.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <span className="absolute inset-0 bg-black/30" aria-hidden />
+            <span className="relative">Proof of Work</span>
           </a>
         </div>
       </div>

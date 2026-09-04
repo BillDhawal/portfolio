@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   title: "Proof of Work — Dhawal Gajwe",
   description:
     "Shipped apps, production AI systems, and open code — problem, solution, role, and outcome for each. Dhawal Gajwe, AI/ML engineer.",
+  openGraph: {
+    title: "Proof of Work — Dhawal Gajwe",
+    description:
+      "Shipped apps, production AI systems, and open code — problem, solution, role, and outcome for each.",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og.png"],
+  },
 };
 
 // Dense, reviewer-facing page. Deliberately plain: no music, no scroll
