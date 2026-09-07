@@ -33,7 +33,7 @@ export default function ProofOfWork() {
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
-        <header className="relative mb-28 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <header className="relative mb-28 overflow-hidden">
           <div
             className="absolute -left-10 top-24 text-[13rem] sm:text-[19rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
@@ -41,7 +41,7 @@ export default function ProofOfWork() {
             thewallcodes
           </div>
 
-          <div className="relative lg:col-span-8">
+          <div className="relative">
           <Link
             href="/"
             className="font-mono text-xs text-black/40 hover:text-black transition-colors"
@@ -75,21 +75,6 @@ export default function ProofOfWork() {
               </a>
             ))}
           </div>
-          </div>
-
-          {/* head loop fills the header's empty right column */}
-          <div className="relative lg:col-span-4">
-            <div className="relative aspect-square overflow-hidden rounded-2xl border border-black/10">
-              <video
-                src="/profile.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-hidden
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
           </div>
         </header>
 
