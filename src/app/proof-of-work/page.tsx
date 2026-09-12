@@ -74,6 +74,10 @@ export default function ProofOfWork() {
               </li>
             ))}
           </ul>
+
+          <p className="mt-6 font-mono text-xs tracking-[0.15em] uppercase text-black/50">
+            Open to roles in AI, ML, and security
+          </p>
           {/* companies, straight after the intro line they describe */}
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40">
@@ -94,6 +98,14 @@ export default function ProofOfWork() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={contact.cal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 text-xs font-mono rounded-full bg-black text-white hover:bg-black/80 transition-colors"
+            >
+              Book 15 min ↗
+            </a>
             {[
               { label: "GitHub", href: contact.github },
               { label: "LinkedIn", href: contact.linkedin },
@@ -428,6 +440,15 @@ export default function ProofOfWork() {
         <footer className="border-t border-black/10 pt-10 pb-8">
           <p className="text-black/70">
             Happy to walk through any of this live —{" "}
+            <a
+              href={contact.cal}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black transition-colors"
+            >
+              book 15 minutes
+            </a>{" "}
+            or{" "}
             <a
               href={`mailto:${contact.email}`}
               className="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black transition-colors"

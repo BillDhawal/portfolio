@@ -419,6 +419,7 @@ export const articles: Article[] = [
 
 export const contact = {
   email: "dhawalcodes@gmail.com",
+  cal: "https://cal.com/dhawal-gajwe/15min",
   github: "https://github.com/BillDhawal",
   linkedin: "https://www.linkedin.com/in/dhawalgajwe/",
   site: "https://www.thewallcodes.com",
