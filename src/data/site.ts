@@ -28,6 +28,8 @@ export type Project = {
   video?: string; // self-hosted demo video (path under /public)
   videoCaption?: string; // context line under the player
   credit?: string; // attribution for work this project builds on
+  learned?: string; // honest findings, kept apart from the outcome numbers
+  tier: "product" | "research" | "also"; // product = built for users; also = compact one-liner
   images?: ProjectImage[]; // screenshots, shown in a hover-scroll gallery
   imageLayout?: "phone" | "wide" | "doc"; // phone = tall device shots, doc = portrait article/page captures
 };
@@ -35,7 +37,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Voice AI Order Agent — Digirestro",
-    status: "In production · Solo build, design to deploy",
+    status: "Staging · 2 restaurants onboarding · Solo build",
+    tier: "product",
     blurb:
       "Voice agents that take restaurant orders and reservations by phone, integrated with the client's kitchen POS. The AI was the easy part — real-time audio, barge-in, and accents are where the engineering lives.",
     stack: "Vapi · Azure AI Foundry · Azure · Real-time audio",
@@ -53,9 +56,11 @@ export const projects: Project[] = [
       "Built a restaurant onboarding flow so a new venue is provisioned with its own agent and menu.",
       "**Deployed on Azure** using Azure AI Foundry resources, with a database for orders and history, and **analytics tracking per-model cost**.",
     ],
-    role: "**Solo, end to end — product design, architecture, and every line of code, through to running it in production.** Platform evaluation, the real-time audio pipeline and barge-in fix, POS integration, Azure deployment and infrastructure, agent orchestration, and the cost-analytics layer. **No other engineer on the project.**",
+    role: "**Solo, end to end — product design, architecture, and every line of code, through to a staging deployment.** Platform evaluation, the real-time audio pipeline and barge-in fix, POS integration, Azure deployment and infrastructure, agent orchestration, and the cost-analytics layer. **No other engineer on the project.**",
     outcome:
-      "**Interruption latency went from 1–3 seconds to under 100ms**, and orders flow from a phone call straight into the kitchen POS. The honest finding: speech models still mishear regional accents, returning common dish names as phonetically similar English words — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
+      "**Interruption latency went from 1–3 seconds to under 100ms**, and orders flow from a phone call straight into the kitchen POS. **Deployed to staging; two restaurants are onboarding** ahead of the production launch.",
+    learned:
+      "Speech models still mishear regional accents, returning common dish names as phonetically similar English words — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
     video: "/pow/voiceai/demo.mp4",
     videoCaption:
       "Early demo — the Infobip build. The product has since moved to Vapi, with restaurant onboarding, dynamic agent creation, and tool integrations.",
@@ -63,6 +68,7 @@ export const projects: Project[] = [
   {
     title: "PubMed RAG",
     status: "MS Capstone · Team project",
+    tier: "research",
     blurb:
       "A RAG system answering biomedical queries over 18,000 PubMed articles with cited PubMed IDs — LangChain ReAct + Weaviate.",
     stack: "Python · LangChain · Weaviate",
@@ -102,6 +108,7 @@ export const projects: Project[] = [
   {
     title: "ProdShoot — AI Product Photography",
     status: "MVP · Demo below",
+    tier: "also",
     blurb:
       "Turn a simple product photo into professional product photography by chatting with AI — new backgrounds, props, and compositions, with selectable image-generation models.",
     stack: "TypeScript · Image generation",
@@ -127,6 +134,7 @@ export const projects: Project[] = [
   {
     title: "ColdConnect",
     status: "Live · 50+ real users",
+    tier: "product",
     blurb:
       "An AI tool that connects you with the right job recruiters — finds the contact, drafts the cold email, sends it for you.",
     stack: "TypeScript · LLMs",
@@ -154,6 +162,7 @@ export const projects: Project[] = [
   {
     title: "Dhammapada Comics",
     status: "Shipped · iOS App Store",
+    tier: "product",
     blurb:
       "All 423 verses of the Dhammapada as AI-illustrated comics — translations and the story behind each verse. Fully offline, no accounts, no ads.",
     stack: "Python · OpenAI · Diffusion · React Native · AWS",
@@ -192,6 +201,7 @@ export const projects: Project[] = [
   {
     title: "LockedIn — Focus Timer",
     status: "Shipped · iOS App Store",
+    tier: "product",
     blurb:
       "A minimalist focus timer with a retro LCD interface — block and Pomodoro sessions, plus a Strict Mode that blocks distracting apps. 100% private, on-device.",
     stack: "Swift · SwiftUI · Family Controls",
@@ -225,6 +235,7 @@ export const projects: Project[] = [
   {
     title: "Transformers from Scratch",
     status: "Code + 4-part article series",
+    tier: "also",
     blurb:
       "A Transformer implemented from scratch in PyTorch for English→Italian translation — custom multi-head attention, positional encodings, training loop.",
     stack: "Python · PyTorch",
