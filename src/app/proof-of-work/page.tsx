@@ -438,24 +438,23 @@ export default function ProofOfWork() {
 
         {/* Footer CTA */}
         <footer className="border-t border-black/10 pt-10 pb-8">
-          <p className="text-black/70">
-            Happy to walk through any of this live —{" "}
+          <p className="text-black/70">Happy to walk through any of this live.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
             <a
               href={contact.cal}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black transition-colors"
+              className="px-4 py-2 text-sm font-mono rounded-full bg-black text-white hover:bg-black/80 transition-colors"
             >
-              book 15 minutes
-            </a>{" "}
-            or{" "}
+              Book 15 min ↗
+            </a>
             <a
               href={`mailto:${contact.email}`}
-              className="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black transition-colors"
+              className="px-4 py-2 text-sm font-mono rounded-full border border-black/15 text-black/70 hover:text-black hover:border-black/40 transition-colors"
             >
               {contact.email}
             </a>
-          </p>
+          </div>
           <p className="mt-6 font-mono text-xs text-black/30 tracking-widest">
             © 2026 DHAWAL GAJWE
           </p>
