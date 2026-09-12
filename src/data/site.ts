@@ -43,19 +43,19 @@ export const projects: Project[] = [
     tint: "from-violet-500/20 to-transparent",
     links: [],
     problem:
-      "Digirestro, a startup building POS and payment systems for restaurants, wanted voice AI agents to take orders and reservations over the phone — restaurants lose revenue every time nobody can pick up at peak hours. Getting an LLM to hold the conversation is straightforward; making it feel human on a real phone line is not.",
+      "Digirestro, a startup building POS and payment systems for restaurants, wanted **voice AI agents to take orders and reservations over the phone** — restaurants lose revenue every time nobody can pick up at peak hours. Getting an LLM to hold the conversation is straightforward; making it feel human on a real phone line is not.",
     built: [
-      "Built the system from scratch and integrated it with Digirestro's kitchen POS, so a phone order reaches the kitchen the same way a counter order does.",
-      "Evaluated three platforms end to end — Azure Voice Live (full pipeline control, but you build the telephony bridge yourself), Infobip (solid telephony, not designed for AI agents), and Vapi (managed STT + LLM + TTS).",
-      "Shipped the first version on Infobip, then hit a wall: it buffers up to 1024 audio frames (~20 seconds) with no way to flush mid-stream, so the agent physically could not be interrupted.",
-      "Solved barge-in with real-time audio frame pacing that keeps the buffer nearly empty. A 3ms difference in frame timing — 17ms versus 20ms — was the line between responsive and broken.",
-      "Migrated to Vapi for agent orchestration: dynamic per-restaurant agent creation, plus tool integrations for date/time handling and a menu refresh service.",
+      "**Built the system from scratch** and **integrated it with Digirestro's kitchen POS**, so a phone order reaches the kitchen the same way a counter order does.",
+      "**Evaluated three platforms end to end** — Azure Voice Live (full pipeline control, but you build the telephony bridge yourself), Infobip (solid telephony, not designed for AI agents), and Vapi (managed STT + LLM + TTS).",
+      "Shipped the first version on Infobip, then hit a wall: it buffers up to **1024 audio frames (~20 seconds)** with no way to flush mid-stream, so **the agent physically could not be interrupted**.",
+      "**Solved barge-in with real-time audio frame pacing** that keeps the buffer nearly empty. A **3ms difference in frame timing** — 17ms versus 20ms — was the line between responsive and broken.",
+      "Migrated to **Vapi for agent orchestration**: **dynamic per-restaurant agent creation**, plus tool integrations for date/time handling and a menu refresh service.",
       "Built a restaurant onboarding flow so a new venue is provisioned with its own agent and menu.",
-      "Deployed on Azure using Azure AI Foundry resources, with a database for orders and history, and analytics tracking per-model cost.",
+      "**Deployed on Azure** using Azure AI Foundry resources, with a database for orders and history, and **analytics tracking per-model cost**.",
     ],
-    role: "Solo, end to end — product design, architecture, and every line of code, through to running it in production. Platform evaluation, the real-time audio pipeline and barge-in fix, POS integration, Azure deployment and infrastructure, agent orchestration, and the cost-analytics layer. No other engineer on the project.",
+    role: "**Solo, end to end — product design, architecture, and every line of code, through to running it in production.** Platform evaluation, the real-time audio pipeline and barge-in fix, POS integration, Azure deployment and infrastructure, agent orchestration, and the cost-analytics layer. **No other engineer on the project.**",
     outcome:
-      "Interruption latency went from 1–3 seconds to under 100ms, and orders flow from a phone call straight into the kitchen POS. The honest finding: speech models still mishear regional accents, returning common dish names as phonetically similar English words — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
+      "**Interruption latency went from 1–3 seconds to under 100ms**, and orders flow from a phone call straight into the kitchen POS. The honest finding: speech models still mishear regional accents, returning common dish names as phonetically similar English words — a model-level limitation no amount of prompting fixes. For a product serving Indian restaurants that is the primary failure mode, not an edge case. Vapi ships fastest, but per-minute pricing scales poorly at hundreds of calls a day.",
     video: "/pow/voiceai/demo.mp4",
     videoCaption:
       "Early demo — the Infobip build. The product has since moved to Vapi, with restaurant onboarding, dynamic agent creation, and tool integrations.",
@@ -79,16 +79,16 @@ export const projects: Project[] = [
       },
     ],
     problem:
-      "Biomedical answers must be grounded in the literature. A vanilla LLM hallucinates citations — disqualifying in this domain.",
+      "Biomedical answers must be grounded in the literature. A vanilla LLM **hallucinates citations** — disqualifying in this domain.",
     built: [
-      "Ingested 18,015 PubMed Central papers — 239,161 chunks, ~13 per document — embedded into Weaviate.",
-      "LangChain ReAct agent reasons over PubMed and Wikipedia retrievers.",
-      "Every answer grounded with cited PubMed IDs.",
+      "Ingested **18,015 PubMed Central papers — 239,161 chunks**, ~13 per document — embedded into Weaviate.",
+      "**LangChain ReAct agent** reasons over PubMed and Wikipedia retrievers.",
+      "**Every answer grounded with cited PubMed IDs.**",
       "Streamlit UI for querying the literature in real time.",
     ],
-    role: "MS capstone (University of Arizona), team of four — I built the RAG chain and the Streamlit UI. My 13 commits are linked above: agent context windows, LLM model switching, Weaviate configuration, and prompt engineering.",
+    role: "MS capstone (University of Arizona), team of four — **I built the RAG chain and the Streamlit UI**. **My 13 commits are linked above**: agent context windows, LLM model switching, Weaviate configuration, and prompt engineering.",
     outcome:
-      "Citation-backed answers over the full corpus, presented at the capstone showcase. The repo lives under the team fork — hence GitHub's fork banner.",
+      "**Citation-backed answers over the full corpus**, presented at the capstone showcase. The repo lives under the team fork — hence GitHub's fork banner.",
     images: [
       { src: "/pow/pubmed/ui-1.jpg", alt: "System architecture — Streamlit UI, LangChain ReAct agent, PubMed and Wikipedia retrievers over Weaviate" },
       { src: "/pow/pubmed/ui-2.jpg", alt: "The app answering a cardiovascular-risk query with findings cited by PubMed ID" },
@@ -116,9 +116,9 @@ export const projects: Project[] = [
     problem:
       "Studio product photography is expensive. Small sellers have a phone photo and no budget.",
     built: [
-      "Upload a product photo, describe the shot in chat, get studio-style images back.",
+      "Upload a product photo, describe the shot in chat, **get studio-style images back**.",
       "New backgrounds, props, and compositions from a single source photo.",
-      "Switch between multiple image-generation models to compare results on the same brief.",
+      "**Switch between multiple image-generation models** to compare results on the same brief.",
     ],
     role: "Solo — a curiosity project, built as an MVP.",
     outcome: "Working demo below. Shared publicly on LinkedIn.",
@@ -144,11 +144,11 @@ export const projects: Project[] = [
       "Cold outreach works — but finding the right recruiter and writing each email takes hours per application.",
     built: [
       "Finds the right recruiter for a role.",
-      "Drafts a personalized cold email with an LLM.",
+      "**Drafts a personalized cold email with an LLM.**",
       "Sends it — one click end to end.",
     ],
-    role: "Solo — product, engineering, deployment.",
-    outcome: "Live on the web with 50+ real users, and open sourced — other developers found it and contributed features.",
+    role: "**Solo — product, engineering, deployment.**",
+    outcome: "Live on the web with **50+ real users**, and **open sourced** — other developers found it and contributed features.",
     videoId: "OnezGbdCDy0",
   },
   {
@@ -172,13 +172,13 @@ export const projects: Project[] = [
     problem:
       "A 2,300-year-old Buddhist text of 423 verses — still published as plain text. Nothing visual. Nothing a modern reader reaches for.",
     built: [
-      "Multimodal pipeline (async Python · OpenAI · KIE.ai · Higgsfield · edge-TTS · MoviePy) that turns all 423 verses into comic panels and Video reels.",
-      "Character-bible system keeps characters visually consistent across stateless diffusion models.",
-      "React Native (Expo, TypeScript) iOS app on AWS Lambda + API Gateway + S3, with offline fallback on device.",
-      "Marketing loop automated with the Claude Agent SDK + Playwright: each verse becomes an Instagram Reel — frames, animation, voiceover, captions — published daily to @dhammapada_comic.",
+      "**Multimodal pipeline** (async Python · OpenAI · KIE.ai · Higgsfield · edge-TTS · MoviePy) that turns **all 423 verses** into comic panels and Video reels.",
+      "**Character-bible system** keeps characters visually consistent across stateless diffusion models.",
+      "**React Native (Expo, TypeScript) iOS app** on AWS Lambda + API Gateway + S3, with offline fallback on device.",
+      "**Marketing loop automated** with the Claude Agent SDK + Playwright: each verse becomes an Instagram Reel — frames, animation, voiceover, captions — published daily to @dhammapada_comic.",
     ],
-    role: "Solo — concept, pipeline, app, infra, automation.",
-    outcome: "Live on the App Store. Daily Reels publish with minimal manual work.",
+    role: "**Solo — concept, pipeline, app, infra, automation.**",
+    outcome: "**Live on the App Store.** Daily Reels publish with minimal manual work.",
     images: [
       { src: "/pow/dhammapada/ss-4.jpg", alt: "Comic reading view — Verse 1 as a four-panel illustrated comic" },
       { src: "/pow/dhammapada/ss-2.jpg", alt: "Dhammapada Comics app screenshot" },
@@ -206,13 +206,13 @@ export const projects: Project[] = [
     problem:
       "Focus apps ship with accounts, subscriptions, and analytics. I wanted one that does one thing well and never phones home.",
     built: [
-      "Native SwiftUI app with a retro-LCD interface.",
+      "**Native SwiftUI app** with a retro-LCD interface.",
       "Block and Pomodoro sessions, stats, and streak tracking.",
-      "Strict Mode blocks distracting apps via Apple Family Controls.",
+      "**Strict Mode blocks distracting apps** via Apple Family Controls.",
       "AI coding assistants used to accelerate SwiftUI development.",
     ],
-    role: "Solo — design, build, App Store release.",
-    outcome: "Live on the App Store. All data stays on device.",
+    role: "**Solo — design, build, App Store release.**",
+    outcome: "**Live on the App Store.** All data stays **on device**.",
     images: [
       { src: "/pow/lockedin/ss-1.jpg", alt: "LockedIn — two finishes, one focus: retro LCD timer in dark and light" },
       { src: "/pow/lockedin/ss-2.jpg", alt: "LockedIn promotional screenshot" },
@@ -251,14 +251,14 @@ export const projects: Project[] = [
     problem:
       "Using transformers is easy. Understanding them is not. I wanted to build one from a blank file — and explain every component.",
     built: [
-      "Full encoder-decoder Transformer in PyTorch — no prebuilt model code.",
-      "Custom multi-head attention, positional encodings, layer norm, training loop.",
+      "**Full encoder-decoder Transformer in PyTorch — no prebuilt model code.**",
+      "**Custom multi-head attention**, positional encodings, layer norm, training loop.",
       "Trained on opus_books for English→Italian translation.",
-      "4-part article series explaining each component.",
+      "**4-part article series** explaining each component.",
     ],
     role: "Solo — I coded the architecture along with Umar Jamil's from-scratch walkthrough, then wrote the 4-part series explaining each component in my own words.",
     outcome:
-      "A working translation model and a published 4-part series that readers followed along with.",
+      "**A working translation model** and a **published 4-part series** that readers followed along with.",
     credit:
       "Architecture code follows Umar Jamil's excellent from-scratch Transformer walkthrough — his YouTube series and hkproj/pytorch-transformer were my reference throughout. Both are linked above.",
     images: [
@@ -298,9 +298,9 @@ export const experience: Role[] = [
     logo: "/logos/avsi.png",
     client: { name: "FedPoint", logo: "/logos/fedpoint.png" },
     bullets: [
-      "Authored a Terraform IaC stack of 80+ resources (VPC, IAM, KMS, Lambda, ECS, SQS, API Gateway, WAF, CloudWatch, Secrets Manager) that standardizes environment parity and cuts deployment time.",
-      "Built a serverless RAG chatbot admin platform on AWS (API Gateway, Lambda, ECS Fargate, SQS, S3, OpenSearch) with a JWT-secured CloudFront + S3 admin UI — administrators deploy and update chatbots across environments in minutes.",
-      "Designed a TypeScript/Fastify admin API with 60+ endpoints for multi-tenant management of applications, chatbots, environments, RBAC, and knowledge bases, on pluggable Postgres/SQLite adapters.",
+      "Authored a **Terraform IaC stack of 80+ resources** (VPC, IAM, KMS, Lambda, ECS, SQS, API Gateway, WAF, CloudWatch, Secrets Manager) that standardizes environment parity and cuts deployment time.",
+      "Built a **serverless RAG chatbot admin platform on AWS** (API Gateway, Lambda, ECS Fargate, SQS, S3, OpenSearch) with a JWT-secured CloudFront + S3 admin UI — administrators deploy and update chatbots across environments in minutes.",
+      "Designed a **TypeScript/Fastify admin API with 60+ endpoints** for multi-tenant management of applications, chatbots, environments, RBAC, and knowledge bases, on pluggable Postgres/SQLite adapters.",
     ],
   },
   {
@@ -310,9 +310,9 @@ export const experience: Role[] = [
     location: "Chicago, IL",
     logo: "/logos/wex.png",
     bullets: [
-      "Designed and scaled an AI-driven claims auto-adjudication system (LangChain, OpenAI LLMs, OCR pipelines) — 40% of insurance claims reimbursed automatically with no manual intervention, served by FastAPI inference endpoints for real-time decisioning.",
+      "Designed and scaled an AI-driven claims auto-adjudication system (LangChain, OpenAI LLMs, OCR pipelines) — **40% of insurance claims reimbursed automatically** with no manual intervention, served by FastAPI inference endpoints for real-time decisioning.",
       "Built end-to-end NLP pipelines extracting, normalizing, and validating structured data from unstructured claim documents, with MLOps practices for automated testing and monitoring.",
-      "Clustered historical claims to find high-confidence adjudication patterns, expanding automated coverage by a further 2%; deployed models on AzureML.",
+      "Clustered historical claims to find high-confidence adjudication patterns, expanding automated coverage by a further **2%**; deployed models on AzureML.",
     ],
   },
   {
@@ -322,9 +322,9 @@ export const experience: Role[] = [
     location: "India",
     logo: "/logos/mcafee.png",
     bullets: [
-      "Led design of App Control plugin features using OSQuery and Auditd, improving endpoint threat detection across Linux/Unix environments.",
-      "Implemented CI/CD pipelines with Jenkins and Groovy, cutting manual testing effort by 40%; standardized Kubernetes/Docker deployments, reducing operational errors by 30%.",
-      "Strengthened CIS security hardening in Python, Lua, and C++, improving compliance scores by 25%.",
+      "Led design of App Control plugin features using OSQuery and Auditd, improving **endpoint threat detection across Linux/Unix environments**.",
+      "Implemented CI/CD pipelines with Jenkins and Groovy, cutting manual testing effort by **40%**; standardized Kubernetes/Docker deployments, reducing operational errors by **30%**.",
+      "Strengthened CIS security hardening in Python, Lua, and C++, improving compliance scores by **25%**.",
     ],
   },
   {
@@ -335,7 +335,7 @@ export const experience: Role[] = [
     logo: "/logos/ibm.png",
     bullets: [
       "Built a web-based CMDB interface (Node.js, Python, MongoDB) to visualize dynamic configuration data for enterprise IT operations.",
-      "Boosted data retrieval speeds by 25% through schema optimization and efficient indexing in MongoDB.",
+      "Boosted data retrieval speeds by **25%** through schema optimization and efficient indexing in MongoDB.",
     ],
   },
 ];

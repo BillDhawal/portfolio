@@ -3,6 +3,7 @@ import Link from "next/link";
 import AutoPlayVideo from "@/components/AutoPlayVideo";
 import { ClientBadge, LogoChip } from "@/components/CompanyMark";
 import Reveal from "@/components/Reveal";
+import Rich from "@/components/Rich";
 import ScreenshotMarquee from "@/components/ScreenshotMarquee";
 import ScrollProgress from "@/components/ScrollProgress";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
@@ -144,7 +145,7 @@ export default function ProofOfWork() {
                         <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           Problem
                         </dt>
-                        <dd>{project.problem}</dd>
+                        <dd><Rich text={project.problem} /></dd>
                       </div>
                       <div>
                         <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
@@ -157,7 +158,7 @@ export default function ProofOfWork() {
                                 key={j}
                                 className="pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
                               >
-                                {item}
+                                <Rich text={item} />
                               </li>
                             ))}
                           </ul>
@@ -167,20 +168,20 @@ export default function ProofOfWork() {
                         <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           My role
                         </dt>
-                        <dd>{project.role}</dd>
+                        <dd><Rich text={project.role} /></dd>
                       </div>
                       <div>
                         <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                           Outcome
                         </dt>
-                        <dd>{project.outcome}</dd>
+                        <dd><Rich text={project.outcome} /></dd>
                       </div>
                       {project.credit && (
                         <div>
                           <dt className="font-mono text-sm tracking-[0.2em] uppercase text-black/50 mb-2">
                             Credit
                           </dt>
-                          <dd className="text-black/60">{project.credit}</dd>
+                          <dd className="text-black/60"><Rich text={project.credit} /></dd>
                         </div>
                       )}
                     </dl>
@@ -277,7 +278,7 @@ export default function ProofOfWork() {
                       key={j}
                       className="text-black/75 leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
                     >
-                      {bullet}
+                      <Rich text={bullet} />
                     </li>
                   ))}
                 </ul>
