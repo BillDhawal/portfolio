@@ -65,9 +65,9 @@ export default function ProofOfWork() {
               "Built a **voice ordering agent solo, design to deploy** — barge-in latency **1–3s → under 100ms**; two restaurants onboarding.",
               "Automated **40% of insurance claim adjudication** at WEX with an LLM + OCR pipeline.",
               "**2 iOS apps shipped solo** to the App Store; **50+ real users** on an open-source outreach tool.",
-            ].map((line) => (
+            ].map((line, i) => (
               <li
-                key={line}
+                key={i}
                 className="pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
               >
                 <Rich text={line} />

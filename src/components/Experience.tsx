@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef } from "react";
 import { experience } from "@/data/site";
 import { ClientBadge, LogoChip } from "@/components/CompanyMark";
+import Rich from "@/components/Rich";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -100,7 +101,7 @@ export default function Experience() {
                     key={j}
                     className="text-black/70 leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-black/30"
                   >
-                    {bullet}
+                    <Rich text={bullet} />
                   </li>
                 ))}
               </ul>

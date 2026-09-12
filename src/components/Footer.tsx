@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef } from "react";
+import { contact } from "@/data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -69,6 +70,20 @@ export default function Footer() {
             something good.
           </span>
         </motion.h2>
+
+        <motion.a
+          href={contact.cal}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-15% 0px" }}
+          custom={2}
+          variants={reveal}
+          className="inline-flex items-center gap-2 mb-12 px-6 py-3 rounded-full bg-black text-white font-mono text-sm hover:bg-black/80 transition-colors"
+        >
+          Book 15 min ↗
+        </motion.a>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
           {links.map((link, i) => (
