@@ -56,7 +56,26 @@ export default function ProofOfWork() {
             security at McAfee to LLM platforms and two live iOS apps. This page
             is the proof: what I built, why, and what came of it.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          {/* companies, straight after the intro line they describe */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-black/40">
+              Worked at
+            </span>
+            {experience.map((role) => (
+              <span
+                key={role.company}
+                className="flex items-center gap-2"
+                title={role.company}
+              >
+                <LogoChip logo={role.logo} name={role.company} />
+                <span className="font-mono text-xs text-black/60">
+                  {role.company}
+                </span>
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
             {[
               { label: "GitHub", href: contact.github },
               { label: "LinkedIn", href: contact.linkedin },
