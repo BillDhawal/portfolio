@@ -125,6 +125,33 @@ export const projects: Project[] = [
     video: "/pow/prodshoot/demo.mp4",
   },
   {
+    title: "ColdConnect",
+    status: "Live · 50+ real users",
+    blurb:
+      "An AI tool that connects you with the right job recruiters — finds the contact, drafts the cold email, sends it for you.",
+    stack: "TypeScript · LLMs",
+    year: "2025",
+    tint: "from-indigo-500/20 to-transparent",
+    links: [
+      { label: "GitHub", href: "https://github.com/BillDhawal/coldconnect" },
+      { label: "Live", href: "https://coldconnect.vercel.app" },
+      {
+        label: "Demo video",
+        href: "https://www.youtube.com/watch?v=OnezGbdCDy0",
+      },
+    ],
+    problem:
+      "Cold outreach works — but finding the right recruiter and writing each email takes hours per application.",
+    built: [
+      "Finds the right recruiter for a role.",
+      "Drafts a personalized cold email with an LLM.",
+      "Sends it — one click end to end.",
+    ],
+    role: "Solo — product, engineering, deployment.",
+    outcome: "Live on the web with 50+ real users, and open sourced — other developers found it and contributed features.",
+    videoId: "OnezGbdCDy0",
+  },
+  {
     title: "Dhammapada Comics",
     status: "Shipped · iOS App Store",
     blurb:
@@ -194,33 +221,6 @@ export const projects: Project[] = [
       { src: "/pow/lockedin/ss-5.jpg", alt: "LockedIn promotional screenshot" },
     ],
     imageLayout: "phone",
-  },
-  {
-    title: "ColdConnect",
-    status: "Live · 50+ real users",
-    blurb:
-      "An AI tool that connects you with the right job recruiters — finds the contact, drafts the cold email, sends it for you.",
-    stack: "TypeScript · LLMs",
-    year: "2025",
-    tint: "from-indigo-500/20 to-transparent",
-    links: [
-      { label: "GitHub", href: "https://github.com/BillDhawal/coldconnect" },
-      { label: "Live", href: "https://coldconnect.vercel.app" },
-      {
-        label: "Demo video",
-        href: "https://www.youtube.com/watch?v=OnezGbdCDy0",
-      },
-    ],
-    problem:
-      "Cold outreach works — but finding the right recruiter and writing each email takes hours per application.",
-    built: [
-      "Finds the right recruiter for a role.",
-      "Drafts a personalized cold email with an LLM.",
-      "Sends it — one click end to end.",
-    ],
-    role: "Solo — product, engineering, deployment.",
-    outcome: "Live on the web with 50+ real users, and open sourced — other developers found it and contributed features.",
-    videoId: "OnezGbdCDy0",
   },
   {
     title: "Transformers from Scratch",

@@ -33,7 +33,7 @@ export default function ProofOfWork() {
       <ScrollProgress />
       <div className="max-w-[1240px] mx-auto">
         {/* Header */}
-        <header className="relative mb-28 overflow-hidden">
+        <header className="relative mb-28 overflow-x-clip">
           <div
             className="absolute -left-10 top-24 text-[13rem] sm:text-[19rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
@@ -79,7 +79,7 @@ export default function ProofOfWork() {
         </header>
 
         {/* Projects */}
-        <section aria-labelledby="projects-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="projects-heading" className="relative mb-32 overflow-x-clip">
           <div
             className="absolute right-0 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
@@ -220,7 +220,7 @@ export default function ProofOfWork() {
         </section>
 
         {/* Experience */}
-        <section aria-labelledby="experience-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="experience-heading" className="relative mb-32 overflow-x-clip">
           <div
             className="absolute -left-10 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
@@ -269,7 +269,7 @@ export default function ProofOfWork() {
         </section>
 
         {/* Videos */}
-        <section aria-labelledby="videos-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="videos-heading" className="relative mb-32 overflow-x-clip">
           <div
             className="absolute right-0 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
@@ -296,7 +296,7 @@ export default function ProofOfWork() {
         </section>
 
         {/* Writing */}
-        <section aria-labelledby="writing-heading" className="relative mb-32 overflow-hidden">
+        <section aria-labelledby="writing-heading" className="relative mb-32 overflow-x-clip">
           <div
             className="absolute -left-10 top-0 text-[16rem] sm:text-[22rem] font-bold text-black/[0.025] leading-none select-none pointer-events-none whitespace-nowrap"
             aria-hidden
