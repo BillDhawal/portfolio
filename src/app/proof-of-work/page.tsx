@@ -191,20 +191,8 @@ export default function ProofOfWork() {
             Projects
           </h2>
 
-          {[
-            { key: "product", label: "Product work — built for users" },
-            { key: "research", label: "Research" },
-          ].map((group) => (
-          <div key={group.key} className="relative mb-24">
-            <h3 className="font-mono text-[11px] tracking-[0.25em] uppercase text-black/40 mb-6">
-              {group.label}
-            </h3>
-            <div className="space-y-24">
-            {featured
-              .filter((project) => project.tier === group.key)
-              .map((project) => {
-              const i = featured.indexOf(project);
-              return (
+          <div className="space-y-24 relative">
+            {featured.map((project, i) => (
               <Reveal key={project.title}>
                 <article className="border-t border-black/10 pt-12">
                 <div className="flex flex-wrap items-baseline justify-between gap-3 mb-1">
@@ -333,11 +321,8 @@ export default function ProofOfWork() {
                 </div>
                 </article>
               </Reveal>
-              );
-            })}
-            </div>
+            ))}
           </div>
-          ))}
 
           {/* smaller pieces, one line each — kept for honesty, not for weight */}
           <div className="relative border-t border-black/10 pt-10">
